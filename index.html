@@ -19,37 +19,6 @@
     <meta property="og:description" content="Boost your math grades with expert tutoring from UCT graduates. Special 50% Back to School Offer available now!" />
     <meta property="og:image" content="https://onlinescool.co.za/og-image.jpg" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://onlinescool.co.za" />
-    <meta property="twitter:title" content="ONLINE S'COOL | Expert Math Tutoring" />
-    <meta property="twitter:description" content="Premium Mathematics tutoring for Grades 10-12. Knowledge is the key to success." />
-    <meta property="twitter:image" content="https://onlinescool.co.za/twitter-image.jpg" />
-
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "EducationalOrganization",
-      "name": "ONLINE S'COOL",
-      "url": "https://onlinescool.co.za",
-      "logo": "https://onlinescool.co.za/logo.png",
-      "description": "Mathematics tutoring service for Grade 10-12 students in South Africa.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Johannesburg",
-        "addressRegion": "Gauteng",
-        "addressCountry": "ZA"
-      },
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "ZAR",
-        "price": "500",
-        "description": "50% Back to School Offer Monthly Package"
-      }
-    }
-    </script>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,22 +29,32 @@
         background-color: #0f172a; /* matches bg-slate-900 */
         margin: 0;
         color: #f8fafc;
+        min-height: 100vh;
       }
-      .animate-fade-in {
-        animation: fadeIn 0.5s ease-in-out;
+      #root:empty::after {
+        content: 'Loading ONLINE S\'COOL...';
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #22d3ee;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        animation: pulse 2s infinite;
       }
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
+      @keyframes pulse {
+        0% { opacity: 0.4; }
+        50% { opacity: 1; }
+        100% { opacity: 0.4; }
       }
     </style>
     <script type="importmap">
 {
   "imports": {
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.24.0",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
-    "react-dom/client": "https://aistudiocdn.com/react-dom@^19.2.0/client",
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "@google/genai": "https://esm.sh/@google/genai@1.24.0",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
     "react/": "https://esm.sh/react@^19.2.3/"
   }
@@ -85,5 +64,11 @@
   <body>
     <div id="root"></div>
     <script type="module" src="index.tsx"></script>
+    <script>
+      window.onerror = function(msg, url, lineNo, columnNo, error) {
+        console.error('Main Script Error:', msg, url, lineNo, columnNo, error);
+        return false;
+      };
+    </script>
   </body>
 </html>

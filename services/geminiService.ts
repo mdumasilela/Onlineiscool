@@ -2,8 +2,6 @@
 import { GoogleGenAI } from "@google/genai";
 import { MarketingCopyType } from '../types';
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 const businessContext = `
 You are a world-class marketing strategist for "ONLINE S'COOL", a premium math tutoring service for Grade 10-12 in South Africa.
 KEY SELLING POINTS:
@@ -34,6 +32,7 @@ const getPromptForType = (type: MarketingCopyType, leadContext?: string): string
 
 export const generateMarketingCopy = async (copyType: MarketingCopyType, leadContext?: string): Promise<string> => {
   try {
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     const prompt = getPromptForType(copyType, leadContext);
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
