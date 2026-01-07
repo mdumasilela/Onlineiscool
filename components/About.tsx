@@ -10,13 +10,13 @@ const About: React.FC = () => {
             <div>
                 <h3 className="text-2xl font-semibold text-cyan-400 mb-2">Our Mission</h3>
                 <p className="text-gray-300 text-lg">
-                To strengthen students' foundational understanding of mathematics, empowering them to confidently solve any mathematical problem they encounter. We are committed to ensuring that each learner is equipped with the skills necessary for academic success.
+                To strengthen students' foundational understanding of mathematics, empowering them to confidently solve any mathematical problem they encounter. We are committed to providing top-tier support tailored specifically for both <span className="text-white font-semibold">DBE</span> and <span className="text-white font-semibold">IEB</span> learners across South Africa.
                 </p>
             </div>
             <div>
                 <h3 className="text-2xl font-semibold text-cyan-400 mb-2">Our Vision</h3>
                 <p className="text-gray-300 text-lg">
-                To become the leading mathematics and science education centre in South Africa, recognized for excellence in teaching and student outcomes.
+                To become the leading mathematics and science education centre in South Africa, recognized for excellence in teaching and student outcomes across all high school curricula.
                 </p>
             </div>
         </div>

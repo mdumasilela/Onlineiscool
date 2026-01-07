@@ -4,27 +4,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ONLINE S'COOL | Premium Math Tutoring South Africa</title>
+    <title>ONLINE S'COOL | Premium Math Tutoring Grade 10-12 South Africa</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="ONLINE S'COOL offers expert mathematics tutoring for Grade 10, 11, and 12 students in South Africa. 50% Back to School Offer! UCT graduate tutors, online classes, and Johannesburg workshops." />
+    <meta name="keywords" content="math tutoring south africa, grade 12 maths help, grade 11 mathematics, grade 10 math tutor, online school south africa, matric maths, rosebank math workshop" />
+    <meta name="author" content="ONLINE S'COOL" />
+    <link rel="canonical" href="https://onlinescool.co.za" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://onlinescool.co.za" />
+    <meta property="og:title" content="ONLINE S'COOL | Knowledge is the Key" />
+    <meta property="og:description" content="Boost your math grades with expert tutoring from UCT graduates. Special 50% Back to School Offer available now!" />
+    <meta property="og:image" content="https://onlinescool.co.za/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://onlinescool.co.za" />
+    <meta property="twitter:title" content="ONLINE S'COOL | Expert Math Tutoring" />
+    <meta property="twitter:description" content="Premium Mathematics tutoring for Grades 10-12. Knowledge is the key to success." />
+    <meta property="twitter:image" content="https://onlinescool.co.za/twitter-image.jpg" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "ONLINE S'COOL",
+      "url": "https://onlinescool.co.za",
+      "logo": "https://onlinescool.co.za/logo.png",
+      "description": "Mathematics tutoring service for Grade 10-12 students in South Africa.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Johannesburg",
+        "addressRegion": "Gauteng",
+        "addressCountry": "ZA"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "ZAR",
+        "price": "500",
+        "description": "50% Back to School Offer Monthly Package"
+      }
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-      body { font-family: 'Poppins', sans-serif; margin: 0; background-color: #0f172a; color: #e2e8f0; }
-      #root { min-height: 100vh; }
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.5s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
     </style>
     <script type="importmap">
-{
-  "imports": {
-    "@google/genai": "https://esm.run/@google/genai@1.2.0",
-    "react": "https://esm.sh/react@19.0.0",
-    "react-dom": "https://esm.sh/react-dom@19.0.0",
-    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/"
-  }
-}
-</script>
+    {
+      "imports": {
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.24.0",
+        "react/": "https://aistudiocdn.com/react@^19.2.0/",
+        "react": "https://aistudiocdn.com/react@^19.2.0",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
