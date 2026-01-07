@@ -26,46 +26,44 @@ const getPromptForType = (type: MarketingCopyType, leadContext?: string): string
         case MarketingCopyType.SHORT_AD_COPY:
             return `${businessContext}\nGenerate 5 variations of Google/Meta ad headlines (max 40 chars) and descriptions (max 90 chars) focusing on the Jan 31st cutoff for 2026. Some should mention emailing admissions@onlineiscool.co.za.`;
         case MarketingCopyType.ONBOARDING_EMAIL:
-            return `${businessContext}\nContext: ${leadContext}. Write a warm onboarding email from admissions@onlineiscool.co.za. Tell them we've reserved their 50% discount spot for the 2026 intake, but they must complete the Info Form [LINK] to finalize enrollment before the Jan 31st deadline.`;
+            return `${businessContext}\nContext: ${leadContext}. 
+            Write a COMPREHENSIVE onboarding email from admissions@onlineiscool.co.za. 
+            The goal is to move them from a lead to an enrolled student.
+            1. Use a warm, professional tone. 
+            2. Congratulate them on reserving the 50% discount. 
+            3. Explicitly ask them to complete the "Student Success Profile" (a form link: [LINK]).
+            4. Mention that the form requires: School name, confirmation of IEB/DBE syllabus, specific math struggle areas (e.g. Geometry/Calculus), and tech setup (Tablet/Laptop).
+            5. Stress the urgency of the Jan 31st deadline.`;
         default:
             return `${businessContext}\nGenerate general marketing copy. Use admissions@onlineiscool.co.za as the contact point.`;
     }
 }
 
 export const generateMarketingCopy = async (copyType: MarketingCopyType, leadContext?: string): Promise<string> => {
-  // Check for API Key presence
   if (!process.env.API_KEY) {
-    throw new Error("System configuration error: API Key is missing. Please contact the administrator.");
+    throw new Error("System configuration error: API Key is missing.");
   }
 
   try {
     const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     const prompt = getPromptForType(copyType, leadContext);
     
-    // We use gemini-3-pro-preview for complex creative writing and strategic planning
     const response = await ai.models.generateContent({
       model: 'gemini-3-pro-preview',
       contents: [{ parts: [{ text: prompt }] }],
       config: {
-        // Allowing a thinking budget helps the model plan the marketing hook before writing
         thinkingConfig: { thinkingBudget: 2000 },
-        temperature: 0.8, // Slightly higher for more creative marketing copy
+        temperature: 0.7,
       }
     });
 
     if (!response.text) {
-      throw new Error("The model generated an empty response. Please try adjusting your request.");
+      throw new Error("Empty response from AI engine.");
     }
 
     return response.text;
   } catch (error: any) {
     console.error("AI Generation Error:", error);
-    
-    // Provide user-friendly context for specific error types
-    if (error.message?.includes("429") || error.message?.includes("quota")) {
-        throw new Error("Daily generation limit reached. Please try again later.");
-    }
-    
-    throw new Error(error.message || "Failed to generate marketing copy due to a connection issue.");
+    throw new Error(error.message || "Failed to generate copy.");
   }
 };
