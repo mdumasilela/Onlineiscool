@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 export interface Tutor {
@@ -33,40 +32,10 @@ export interface FAQItem {
   answer: string;
 }
 
+// FIX: Define and export the MarketingCopyType enum to be used for the AI marketing generator.
 export enum MarketingCopyType {
   FACEBOOK_POST = 'Facebook Post',
   TIKTOK_SCRIPT = 'TikTok Script',
   EMAIL_TO_PARENTS = 'Email to Parents',
   SHORT_AD_COPY = 'Short Ad Copy',
-  ONBOARDING_EMAIL = 'Onboarding Request Email',
-}
-
-export type MathTopic = 'Algebra' | 'Functions' | 'Trigonometry' | 'Geometry' | 'Probability';
-
-export interface DiagnosticQuestion {
-  id: number;
-  topic: MathTopic;
-  question: string;
-  options: string[];
-  correctAnswer: number;
-}
-
-export interface TopicResult {
-  topic: MathTopic;
-  score: number;
-  total: number;
-}
-
-export type LeadStatus = 'New' | 'Info Requested' | 'Call Scheduled' | 'Follow-up Needed' | 'Enrolled';
-
-export interface Lead {
-  id: string;
-  parentName: string;
-  studentName: string;
-  email: string;
-  phone: string;
-  grade: string;
-  package: string;
-  status: LeadStatus;
-  dateJoined: string;
 }

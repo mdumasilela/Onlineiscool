@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Logo from './Logo';
 
@@ -8,9 +7,10 @@ const Header: React.FC = () => {
   const navLinks = [
     { href: '#home', text: 'Home' },
     { href: '#features', text: 'Features' },
-    { href: '#diagnostic-test', text: 'Diagnostic Test' },
+    { href: '#about', text: 'About' },
     { href: '#tutors', text: 'Tutors' },
     { href: '#pricing', text: 'Pricing' },
+    { href: '#testimonials', text: 'Testimonials' },
     { href: '#faq', text: 'FAQ' },
     { href: '#contact', text: 'Contact' },
   ];
