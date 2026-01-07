@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import { Analytics } from '@vercel/analytics/react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Features from './components/Features';
@@ -56,7 +55,6 @@ const App: React.FC = () => {
         <Contact />
       </main>
       <Footer />
-      <Analytics />
     </div>
   );
 };

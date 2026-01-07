@@ -67,7 +67,6 @@ const BackOffice: React.FC<BackOfficeProps> = ({ onExit }) => {
 
   return (
     <div className="min-h-screen bg-slate-950 flex flex-col md:flex-row">
-      {/* Sidebar */}
       <aside className="w-full md:w-64 bg-slate-900 border-b md:border-b-0 md:border-r border-slate-800 p-6 flex flex-col">
         <div className="mb-10">
           <Logo />
@@ -89,11 +88,15 @@ const BackOffice: React.FC<BackOfficeProps> = ({ onExit }) => {
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
             Marketing Tool
           </button>
-          <button className="w-full flex items-center gap-3 px-4 py-3 text-gray-700 cursor-not-allowed" disabled>
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-            Analytics
-          </button>
         </nav>
+
+        {/* Campaign Tips */}
+        <div className="mt-6 p-4 bg-slate-800/50 rounded-xl border border-slate-700/50 hidden md:block">
+            <h4 className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest mb-2">Campaign Tip</h4>
+            <p className="text-[11px] text-gray-400 leading-relaxed">
+                Driving traffic? Use the "TikTok Script" generator for students and "Facebook Post" for parents. Target the 28 Feb deadline to create FOMO.
+            </p>
+        </div>
 
         <div className="mt-auto pt-6 border-t border-slate-800">
           <button 
@@ -106,7 +109,6 @@ const BackOffice: React.FC<BackOfficeProps> = ({ onExit }) => {
         </div>
       </aside>
 
-      {/* Main Content */}
       <main className="flex-grow p-4 md:p-10 overflow-y-auto">
         <header className="mb-8 flex justify-between items-end">
           <div>
@@ -114,7 +116,7 @@ const BackOffice: React.FC<BackOfficeProps> = ({ onExit }) => {
                 {activeTab === 'leads' ? 'Onboarding & Leads' : 'AI Marketing Hub'}
             </h1>
             <p className="text-gray-400">
-                {activeTab === 'leads' ? 'Manage student applications and onboarding tasks.' : 'Create, edit and deploy launch materials for the 2026 campaign.'}
+                {activeTab === 'leads' ? 'Manage student applications and onboarding tasks.' : 'Create materials for the 28 Feb deadline campaign.'}
             </p>
           </div>
           <div className="text-right hidden sm:block">
