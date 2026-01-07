@@ -147,18 +147,24 @@ const DiagnosticTest: React.FC = () => {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+              <div className="flex flex-col gap-3 sm:flex-row sm:justify-center pt-4">
                 <button 
                   onClick={() => setCurrentStep(0)}
-                  className="px-6 py-3 rounded-lg border-2 border-slate-600 text-gray-300 hover:bg-slate-700 transition"
+                  className="px-6 py-3 rounded-lg border-2 border-slate-600 text-gray-300 hover:bg-slate-700 transition order-3 sm:order-1"
                 >
                   Retake Test
                 </button>
                 <button 
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-8 py-3 rounded-lg bg-cyan-500 text-white font-bold hover:bg-cyan-600 transition"
+                  className="px-8 py-3 rounded-lg bg-cyan-500 text-white font-bold hover:bg-cyan-600 transition order-1 sm:order-2 shadow-lg shadow-cyan-500/20"
                 >
                   Enroll Now
+                </button>
+                <button 
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="px-8 py-3 rounded-lg bg-slate-700 border border-cyan-500/30 text-cyan-400 font-bold hover:bg-slate-600 transition order-2 sm:order-3"
+                >
+                  Book a Consultation
                 </button>
               </div>
             </div>
