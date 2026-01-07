@@ -70,3 +70,18 @@ export interface Lead {
   status: LeadStatus;
   dateJoined: string;
 }
+
+export interface Student extends Lead {
+  paymentStatus: 'Paid' | 'Pending' | 'Overdue';
+  lastAttendance: string;
+  teamsLink: string;
+}
+
+export interface ClassSession {
+  id: string;
+  grade: string;
+  day: 'Wednesday' | 'Sunday' | 'Workshop';
+  time: string;
+  topic: string;
+  tutor: string;
+}

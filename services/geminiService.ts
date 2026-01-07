@@ -33,16 +33,39 @@ const getPromptForType = (type: MarketingCopyType, leadContext?: string): string
 }
 
 export const generateMarketingCopy = async (copyType: MarketingCopyType, leadContext?: string): Promise<string> => {
+  // Check for API Key presence
+  if (!process.env.API_KEY) {
+    throw new Error("System configuration error: API Key is missing. Please contact the administrator.");
+  }
+
   try {
     const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     const prompt = getPromptForType(copyType, leadContext);
+    
+    // We use gemini-3-pro-preview for complex creative writing and strategic planning
     const response = await ai.models.generateContent({
-      model: 'gemini-3-flash-preview',
-      contents: prompt,
+      model: 'gemini-3-pro-preview',
+      contents: [{ parts: [{ text: prompt }] }],
+      config: {
+        // Allowing a thinking budget helps the model plan the marketing hook before writing
+        thinkingConfig: { thinkingBudget: 2000 },
+        temperature: 0.8, // Slightly higher for more creative marketing copy
+      }
     });
+
+    if (!response.text) {
+      throw new Error("The model generated an empty response. Please try adjusting your request.");
+    }
+
     return response.text;
-  } catch (error) {
-    console.error("Error generating content:", error);
-    return "Marketing copy generation failed. Please try again.";
+  } catch (error: any) {
+    console.error("AI Generation Error:", error);
+    
+    // Provide user-friendly context for specific error types
+    if (error.message?.includes("429") || error.message?.includes("quota")) {
+        throw new Error("Daily generation limit reached. Please try again later.");
+    }
+    
+    throw new Error(error.message || "Failed to generate marketing copy due to a connection issue.");
   }
 };

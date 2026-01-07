@@ -2,17 +2,22 @@
 import React, { useState } from 'react';
 import MarketingGenerator from './MarketingGenerator';
 import LeadsManager from './LeadsManager';
+import StudentManager from './StudentManager';
+import ScheduleManager from './ScheduleManager';
+import Dashboard from './Dashboard';
 import Logo from './Logo';
 
 interface BackOfficeProps {
   onExit: () => void;
 }
 
+type TabType = 'dashboard' | 'pipeline' | 'roster' | 'schedule' | 'marketing';
+
 const BackOffice: React.FC<BackOfficeProps> = ({ onExit }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [activeTab, setActiveTab] = useState<'marketing' | 'leads'>('leads');
+  const [activeTab, setActiveTab] = useState<TabType>('dashboard');
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,7 +36,7 @@ const BackOffice: React.FC<BackOfficeProps> = ({ onExit }) => {
           <div className="flex justify-center mb-8">
             <Logo />
           </div>
-          <h2 className="text-2xl font-bold text-white text-center mb-2">Back Office Portal</h2>
+          <h2 className="text-2xl font-bold text-white text-center mb-2">Management Portal</h2>
           <p className="text-gray-400 text-center mb-8 text-sm uppercase tracking-widest">Internal Use Only</p>
           
           <form onSubmit={handleLogin} className="space-y-4">
@@ -50,7 +55,7 @@ const BackOffice: React.FC<BackOfficeProps> = ({ onExit }) => {
               type="submit"
               className="w-full bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 rounded-lg transition"
             >
-              Authorize
+              Authorize Access
             </button>
           </form>
           
@@ -65,38 +70,65 @@ const BackOffice: React.FC<BackOfficeProps> = ({ onExit }) => {
     );
   }
 
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'dashboard': return <Dashboard />;
+      case 'pipeline': return <LeadsManager />;
+      case 'roster': return <StudentManager />;
+      case 'schedule': return <ScheduleManager />;
+      case 'marketing': return <MarketingGenerator />;
+      default: return <Dashboard />;
+    }
+  };
+
+  const menuItems: { id: TabType; label: string; icon: React.ReactNode }[] = [
+    { 
+        id: 'dashboard', 
+        label: 'Dashboard', 
+        icon: <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg> 
+    },
+    { 
+        id: 'pipeline', 
+        label: 'Leads Pipeline', 
+        icon: <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg> 
+    },
+    { 
+        id: 'roster', 
+        label: 'Student Roster', 
+        icon: <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg> 
+    },
+    { 
+        id: 'schedule', 
+        label: 'Schedule & Links', 
+        icon: <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg> 
+    },
+    { 
+        id: 'marketing', 
+        label: 'AI Marketing', 
+        icon: <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg> 
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-slate-950 flex flex-col md:flex-row">
+    <div className="min-h-screen bg-slate-950 flex flex-col md:flex-row font-sans">
       <aside className="w-full md:w-64 bg-slate-900 border-b md:border-b-0 md:border-r border-slate-800 p-6 flex flex-col">
         <div className="mb-10">
           <Logo />
-          <p className="text-[10px] text-cyan-400 font-bold uppercase tracking-tighter mt-1">Management Portal</p>
+          <p className="text-[10px] text-cyan-400 font-bold uppercase tracking-tighter mt-1 px-1">Internal Admin Tool</p>
         </div>
         
-        <nav className="flex-grow space-y-2">
-          <button 
-            onClick={() => setActiveTab('leads')}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition ${activeTab === 'leads' ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20' : 'text-gray-400 hover:bg-slate-800'}`}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
-            Student Leads
-          </button>
-          <button 
-            onClick={() => setActiveTab('marketing')}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition ${activeTab === 'marketing' ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20' : 'text-gray-400 hover:bg-slate-800'}`}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
-            Marketing Tool
-          </button>
+        <nav className="flex-grow space-y-1">
+          {menuItems.map(item => (
+            <button 
+              key={item.id}
+              onClick={() => setActiveTab(item.id)}
+              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all ${activeTab === item.id ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 shadow-lg shadow-cyan-900/10' : 'text-gray-400 hover:bg-slate-800 hover:text-white'}`}
+            >
+              {item.icon}
+              {item.label}
+            </button>
+          ))}
         </nav>
-
-        {/* Campaign Tips */}
-        <div className="mt-6 p-4 bg-slate-800/50 rounded-xl border border-slate-700/50 hidden md:block">
-            <h4 className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest mb-2">Campaign Tip</h4>
-            <p className="text-[11px] text-gray-400 leading-relaxed">
-                Driving traffic? Use the "TikTok Script" generator for students and "Facebook Post" for parents. Target the 31 Jan deadline to create FOMO for the 2026 intake.
-            </p>
-        </div>
 
         <div className="mt-auto pt-6 border-t border-slate-800">
           <button 
@@ -110,26 +142,8 @@ const BackOffice: React.FC<BackOfficeProps> = ({ onExit }) => {
       </aside>
 
       <main className="flex-grow p-4 md:p-10 overflow-y-auto">
-        <header className="mb-8 flex justify-between items-end">
-          <div>
-            <h1 className="text-3xl font-bold text-white">
-                {activeTab === 'leads' ? 'Onboarding & Leads' : 'AI Marketing Hub'}
-            </h1>
-            <p className="text-gray-400">
-                {activeTab === 'leads' ? 'Manage student applications and onboarding tasks.' : 'Create materials for the 31 Jan deadline campaign.'}
-            </p>
-          </div>
-          <div className="text-right hidden sm:block">
-              <p className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Active System</p>
-              <div className="flex items-center gap-2 text-green-400 text-sm font-medium">
-                  <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
-                  Lead Automations Live
-              </div>
-          </div>
-        </header>
-        
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl min-h-[600px]">
-          {activeTab === 'marketing' ? <MarketingGenerator /> : <LeadsManager />}
+        <div className="max-w-6xl mx-auto">
+            {renderContent()}
         </div>
       </main>
     </div>

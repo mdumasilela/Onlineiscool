@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Tutor, PricingPackage, FeatureInfo, Testimonial, FAQItem, DiagnosticQuestion, Lead } from './types';
+import { Tutor, PricingPackage, FeatureInfo, Testimonial, FAQItem, DiagnosticQuestion, Lead, Student, ClassSession } from './types';
 
 export const TUTORS: Tutor[] = [
   {
@@ -213,16 +213,44 @@ export const SAMPLE_LEADS: Lead[] = [
     package: 'Online Classes',
     status: 'Info Requested',
     dateJoined: '2025-05-09T14:15:00Z'
+  }
+];
+
+export const SAMPLE_STUDENTS: Student[] = [
+  {
+    id: 's1',
+    parentName: 'Thabo Mokoena',
+    studentName: 'Kabelo Mokoena',
+    email: 'thabo@mokoena.co.za',
+    phone: '071 222 3333',
+    grade: 'Grade 12',
+    package: 'Online + Workshop',
+    status: 'Enrolled',
+    dateJoined: '2025-01-05T08:00:00Z',
+    paymentStatus: 'Paid',
+    lastAttendance: '2025-05-07',
+    teamsLink: 'https://teams.microsoft.com/l/meetup-join/grade12'
   },
   {
-    id: '3',
-    parentName: 'Zanele Mthembu',
-    studentName: 'Sipho Mthembu',
-    email: 'z.mthembu@example.com',
-    phone: '071 999 8888',
-    grade: 'Grade 10',
-    package: 'Online + Workshop',
-    status: 'Call Scheduled',
-    dateJoined: '2025-05-08T09:00:00Z'
+    id: 's2',
+    parentName: 'Zanele Ndlovu',
+    studentName: 'Sizwe Ndlovu',
+    email: 'zanele@ndlovu.net',
+    phone: '082 555 6666',
+    grade: 'Grade 11',
+    package: 'Online Classes',
+    status: 'Enrolled',
+    dateJoined: '2025-01-15T12:00:00Z',
+    paymentStatus: 'Overdue',
+    lastAttendance: '2025-05-07',
+    teamsLink: 'https://teams.microsoft.com/l/meetup-join/grade11'
   }
+];
+
+export const CLASS_SCHEDULE: ClassSession[] = [
+  { id: 'c1', grade: 'Grade 12', day: 'Wednesday', time: '18:00 - 20:00', topic: 'Calculus - Limits & Continuity', tutor: 'Mduduzi Masilela' },
+  { id: 'c2', grade: 'Grade 11', day: 'Wednesday', time: '18:00 - 20:00', topic: 'Functions - Parabola & Hyperbola', tutor: 'Lawrence Mashiane' },
+  { id: 'c3', grade: 'Grade 10', day: 'Wednesday', time: '18:00 - 20:00', topic: 'Algebra - Factorisation', tutor: 'Mbali Mashiyane' },
+  { id: 'c4', grade: 'All Grades', day: 'Sunday', time: '09:00 - 11:00', topic: 'Exam Preparation & Q&A', tutor: 'Rotation' },
+  { id: 'w1', grade: 'Workshop Group', day: 'Workshop', time: '09:00 - 13:00', topic: 'Trigonometry Deep Dive', tutor: 'Mduduzi & Lawrence' }
 ];
