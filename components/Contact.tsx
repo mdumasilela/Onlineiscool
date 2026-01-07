@@ -29,9 +29,9 @@ const Contact: React.FC = () => {
                     </svg>
                 </div>
                 <h3 className="text-3xl font-bold mb-4">You're on the list!</h3>
-                <p className="text-lg mb-6">We've just sent an automated <strong>Onboarding Information Request</strong> to your email. Please check your inbox (and spam folder) to complete the next steps.</p>
+                <p className="text-lg mb-6">We've just sent an automated <strong>Onboarding Information Request</strong> from <span className="text-cyan-400 font-semibold">admissions@onlineiscool.co.za</span>.</p>
                 <div className="bg-cyan-800/20 p-4 rounded-lg border border-cyan-700/30">
-                    <p className="text-sm">Once you complete the info request, our assistant will contact you to schedule your introductory call.</p>
+                    <p className="text-sm italic">Please check your inbox (and spam folder) to complete the next steps. Once finished, we'll reach out to schedule your intro call.</p>
                 </div>
             </div>
         ) : (
