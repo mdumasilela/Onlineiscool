@@ -1,5 +1,5 @@
 
-import { GoogleGenAI } from "@google/genai";
+import {GoogleGenAI} from "@google/genai";
 import { MarketingCopyType } from '../types';
 
 const businessContext = `
@@ -27,43 +27,39 @@ const getPromptForType = (type: MarketingCopyType, leadContext?: string): string
             return `${businessContext}\nGenerate 5 variations of Google/Meta ad headlines (max 40 chars) and descriptions (max 90 chars) focusing on the Jan 31st cutoff for 2026. Some should mention emailing admissions@onlineiscool.co.za.`;
         case MarketingCopyType.ONBOARDING_EMAIL:
             return `${businessContext}\nContext: ${leadContext}. 
-            Write a COMPREHENSIVE onboarding email from admissions@onlineiscool.co.za. 
-            The goal is to move them from a lead to an enrolled student.
-            1. Use a warm, professional tone. 
-            2. Congratulate them on reserving the 50% discount. 
-            3. Explicitly ask them to complete the "Student Success Profile" (a form link: [LINK]).
-            4. Mention that the form requires: School name, confirmation of IEB/DBE syllabus, specific math struggle areas (e.g. Geometry/Calculus), and tech setup (Tablet/Laptop).
-            5. Stress the urgency of the Jan 31st deadline.`;
+            Write a COMPREHENSIVE enrollment invitation. This email is sent IMMEDIATELY after they register on the site.
+            1. SUBJECT: Action Required: Finalise ${leadContext?.split(',')[0]}’s 2026 Enrollment
+            2. BODY: Warmly welcome the parent. 
+            3. REQUEST: Ask them to complete the "Student Success Profile" link: [LINK].
+            4. DETAIL: Explain that the form asks for School Name, IEB/DBE Curriculum verification, Recent Math Marks (Term 1-4), specific "Struggle Topics" (e.g. Euclidean Geometry), and Technical Setup confirmation.
+            5. CLOSING: Emphasize that completing this profile is the final step to locking in the 50% discount before Jan 31st.`;
         default:
             return `${businessContext}\nGenerate general marketing copy. Use admissions@onlineiscool.co.za as the contact point.`;
     }
 }
 
 export const generateMarketingCopy = async (copyType: MarketingCopyType, leadContext?: string): Promise<string> => {
-  if (!process.env.API_KEY) {
-    throw new Error("System configuration error: API Key is missing.");
-  }
-
   try {
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    // Initializing GoogleGenAI using the exact format from guidelines
+    const ai = new GoogleGenAI({apiKey: process.env.API_KEY});
     const prompt = getPromptForType(copyType, leadContext);
     
+    // Using generateContent directly with the model and prompt
     const response = await ai.models.generateContent({
       model: 'gemini-3-pro-preview',
-      contents: [{ parts: [{ text: prompt }] }],
+      contents: prompt,
       config: {
-        thinkingConfig: { thinkingBudget: 2000 },
+        thinkingConfig: { thinkingBudget: 2048 },
         temperature: 0.7,
       }
     });
 
-    if (!response.text) {
-      throw new Error("Empty response from AI engine.");
-    }
-
-    return response.text;
+    // Accessing text as a property of GenerateContentResponse
+    const text = response.text;
+    if (!text) throw new Error("AI returned empty content.");
+    return text;
   } catch (error: any) {
-    console.error("AI Generation Error:", error);
-    throw new Error(error.message || "Failed to generate copy.");
+    console.error("Gemini Service Error:", error);
+    throw new Error(error.message || "Connection failed. Please check your internet.");
   }
 };
