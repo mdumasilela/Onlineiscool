@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/30 px-4 py-2 rounded-full mb-8 animate-bounce">
             <span className="flex h-2 w-2 rounded-full bg-yellow-500"></span>
-            <span className="text-yellow-500 text-sm font-bold uppercase tracking-widest">50% OFF Back to School Offer - SIGN UP BY 28 FEBRUARY 2026</span>
+            <span className="text-yellow-500 text-sm font-bold uppercase tracking-widest">50% OFF Back to School Offer - SIGN UP BY 31 JANUARY 2026 FOR 2026 INTAKE</span>
         </div>
         <h1 className="text-4xl md:text-7xl font-bold text-white leading-tight mb-6">
           Unlock Your Math Potential. <br />
@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
         </h1>
         <p className="text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
           Expert math tutoring for <span className="text-white font-semibold">Grade 10, 11 & 12</span> students in South Africa. 
-          Specializing in both <span className="text-cyan-400">DBE and IEB</span> curricula.
+          Specialising in both <span className="text-cyan-400">DBE and IEB</span> curricula.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 

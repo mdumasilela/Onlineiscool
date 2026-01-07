@@ -32,7 +32,7 @@ export const PRICING_PACKAGES: PricingPackage[] = [
     price: 500,
     features: [
       'Back to School Offer: 50% OFF (Usually R1000)',
-      'Sign up before 28 Feb 2026',
+      'Sign up before 31 Jan 2026 (2026 Intake)',
       'DBE & IEB Syllabus Coverage',
       '2 x 2-hour lessons per week',
       'Wednesday evenings & Sunday mornings',
@@ -44,7 +44,7 @@ export const PRICING_PACKAGES: PricingPackage[] = [
     price: 650,
     features: [
       'Back to School Offer: 50% OFF (Usually R1300)',
-      'Sign up before 28 Feb 2026',
+      'Sign up before 31 Jan 2026 (2026 Intake)',
       'All Online Classes features',
       'Monthly 4-hour in-person workshop',
       'Location: Rosebank/Sandton area (JHB)',
@@ -73,7 +73,7 @@ export const FEATURES: FeatureInfo[] = [
    {
     icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>,
     title: 'Elite Academic Quality',
-    description: 'We prioritize excellence through rigorous tutor selection and a methodology that transforms struggling students into top achievers.'
+    description: 'We prioritise excellence through rigorous tutor selection and a methodology that transforms struggling students into top achievers.'
   }
 ];
 
@@ -98,7 +98,7 @@ export const TESTIMONIALS: Testimonial[] = [
 export const FAQS: FAQItem[] = [
     {
         question: "What grades and subjects do you currently offer?",
-        answer: "We specialize in mathematics for Grade 10, Grade 11, and Grade 12 students. We cover both the DBE and IEB syllabuses. We are planning to expand to include other subjects like Physics, IT, and Accounting in the future."
+        answer: "We specialise in mathematics for Grade 10, Grade 11, and Grade 12 students. We cover both the DBE and IEB syllabuses. We are planning to expand to include other subjects like Physics, IT, and Accounting in the future."
     },
     {
         question: "How are the online classes conducted?",
@@ -106,7 +106,7 @@ export const FAQS: FAQItem[] = [
     },
     {
         question: "What is the Back to School Offer?",
-        answer: "We are offering a massive 50% discount on all our monthly packages if you sign up before 28 February 2026! This is our way of helping students kickstart their academic year with the best support."
+        answer: "We are offering a massive 50% discount on all our monthly packages if you sign up before 31 January 2026! This is our way of helping students kickstart their 2026 academic year with the best support."
     },
     {
         question: "Where do the in-person workshops take place?",
@@ -171,7 +171,7 @@ export const DIAGNOSTIC_QUESTIONS: DiagnosticQuestion[] = [
   {
     id: 8,
     topic: 'Geometry',
-    question: "In Euclidean geometry, the angle at the center of a circle is ___ the angle at the circumference subtended by the same arc.",
+    question: "In Euclidean geometry, the angle at the centre of a circle is ___ the angle at the circumference subtended by the same arc.",
     options: ["equal to", "half of", "twice", "unrelated to"],
     correctAnswer: 2
   },

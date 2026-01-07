@@ -94,7 +94,7 @@ const BackOffice: React.FC<BackOfficeProps> = ({ onExit }) => {
         <div className="mt-6 p-4 bg-slate-800/50 rounded-xl border border-slate-700/50 hidden md:block">
             <h4 className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest mb-2">Campaign Tip</h4>
             <p className="text-[11px] text-gray-400 leading-relaxed">
-                Driving traffic? Use the "TikTok Script" generator for students and "Facebook Post" for parents. Target the 28 Feb deadline to create FOMO.
+                Driving traffic? Use the "TikTok Script" generator for students and "Facebook Post" for parents. Target the 31 Jan deadline to create FOMO for the 2026 intake.
             </p>
         </div>
 
@@ -116,7 +116,7 @@ const BackOffice: React.FC<BackOfficeProps> = ({ onExit }) => {
                 {activeTab === 'leads' ? 'Onboarding & Leads' : 'AI Marketing Hub'}
             </h1>
             <p className="text-gray-400">
-                {activeTab === 'leads' ? 'Manage student applications and onboarding tasks.' : 'Create materials for the 28 Feb deadline campaign.'}
+                {activeTab === 'leads' ? 'Manage student applications and onboarding tasks.' : 'Create materials for the 31 Jan deadline campaign.'}
             </p>
           </div>
           <div className="text-right hidden sm:block">
