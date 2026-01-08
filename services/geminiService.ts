@@ -18,22 +18,28 @@ KEY SELLING POINTS:
 const getPromptForType = (type: MarketingCopyType, leadContext?: string): string => {
   switch (type) {
     case MarketingCopyType.ONBOARDING_EMAIL:
-      return `${businessContext}\nContext: ${leadContext}. 
-            Write a COMPREHENSIVE enrollment invitation email. 
-            This is sent immediately after a lead registers.
-            1. SUBJECT: Action Required: Finalise 2026 Math Enrollment for ${leadContext?.split(',')[0]}
-            2. BODY: Warmly welcome them.
-            3. REQUEST: Ask them to complete the "Student Success Profile" form.
-            4. FORM DETAILS: Explicitly mention we need: School Name, Curriculum (DBE/IEB), Recent Math Marks, and specific struggle areas (e.g., Geometry/Functions).
-            5. TECH: Ask them to confirm they have a tablet/laptop for Microsoft Teams sessions.
-            6. DEADLINE: Remind them to complete this by 31 January 2026 to lock in the 50% discount.`;
+      return `${businessContext}
+Context: ${leadContext}. 
+Write a COMPREHENSIVE enrollment invitation email. 
+This is sent immediately after a lead registers.
+1. SUBJECT: Action Required: Finalise 2026 Math Enrollment for ${leadContext?.split(',')[0]}
+2. BODY: Warmly welcome them.
+3. REQUEST: Ask them to complete the "Student Success Profile" form.
+4. FORM DETAILS: Explicitly mention we need: School Name, Curriculum (DBE/IEB), Recent Math Marks, and specific struggle areas (e.g., Geometry/Functions).
+5. TECH: Ask them to confirm they have a tablet/laptop for Microsoft Teams sessions.
+6. DEADLINE: Remind them to complete this by 31 January 2026 to lock in the 50% discount.`;
     default:
-      return `${businessContext}\nGenerate high-converting marketing copy for ${type}. Context: ${leadContext || 'General brand awareness'}.`;
+      return `${businessContext}
+Generate high-converting marketing copy for ${type}. Context: ${leadContext || 'General brand awareness'}.`;
   }
 }
 
 export const generateMarketingCopy = async (copyType: MarketingCopyType, leadContext?: string): Promise<string> => {
-  // Always create a fresh instance to ensure the latest API Key is used
+  if (!process.env.API_KEY) {
+    throw new Error("API_KEY_REQUIRED");
+  }
+
+  // Create fresh instance before each call to ensure latest API key
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   
   try {
@@ -47,11 +53,13 @@ export const generateMarketingCopy = async (copyType: MarketingCopyType, leadCon
       }
     });
 
-    return response.text || "Failed to generate content.";
+    // Access .text property directly as per guidelines
+    const text = response.text;
+    if (!text) throw new Error("AI returned empty content.");
+    return text;
   } catch (error: any) {
     console.error("Gemini API Error:", error);
-    // If key is missing or invalid, we throw a specific message that our UI can handle
-    if (error.message?.includes("API Key")) {
+    if (error.message?.includes("API_KEY") || error.message?.includes("key") || error.status === 403 || error.status === 401) {
       throw new Error("API_KEY_REQUIRED");
     }
     throw error;
