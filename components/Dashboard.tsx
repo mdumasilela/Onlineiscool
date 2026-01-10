@@ -85,10 +85,10 @@ const Dashboard: React.FC = () => {
                         </ul>
                     </div>
                     <button 
-                        onClick={() => window.open('https://portal.office.com', '_blank')}
+                        onClick={() => window.open('https://zoom.us', '_blank')}
                         className="w-full mt-8 bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 rounded-xl border border-slate-700 transition"
                     >
-                        Access Teams Admin
+                        Access Zoom Admin
                     </button>
                 </div>
             </div>

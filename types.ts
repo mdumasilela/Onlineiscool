@@ -74,13 +74,13 @@ export interface Lead {
 export interface Student extends Lead {
   paymentStatus: 'Paid' | 'Pending' | 'Overdue';
   lastAttendance: string;
-  teamsLink: string;
+  zoomLink: string;
 }
 
 export interface ClassSession {
   id: string;
   grade: string;
-  day: 'Wednesday' | 'Sunday' | 'Workshop';
+  day: 'Monday' | 'Saturday' | 'Workshop';
   time: string;
   topic: string;
   tutor: string;

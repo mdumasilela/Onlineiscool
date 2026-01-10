@@ -12,9 +12,9 @@ const StudentManager: React.FC = () => {
         s.parentName.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    const copyTeamsLink = (link: string) => {
+    const copyZoomLink = (link: string) => {
         navigator.clipboard.writeText(link);
-        alert('Teams link copied to clipboard!');
+        alert('Zoom link copied to clipboard!');
     };
 
     return (
@@ -77,9 +77,9 @@ const StudentManager: React.FC = () => {
                                     <td className="px-6 py-5 text-right">
                                         <div className="flex justify-end gap-2">
                                             <button 
-                                                onClick={() => copyTeamsLink(student.teamsLink)}
+                                                onClick={() => copyZoomLink(student.zoomLink)}
                                                 className="p-2 text-gray-400 hover:text-cyan-400 bg-slate-800 rounded-lg hover:bg-slate-700 transition"
-                                                title="Copy Teams Link"
+                                                title="Copy Zoom Link"
                                             >
                                                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
                                             </button>

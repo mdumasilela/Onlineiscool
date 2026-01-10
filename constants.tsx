@@ -5,14 +5,14 @@ import { Tutor, PricingPackage, FeatureInfo, Testimonial, FAQItem, DiagnosticQue
 export const TUTORS: Tutor[] = [
   {
     name: 'Mbali Mashiyane CA(SA)',
-    title: 'Managing Director',
+    title: 'Tutor',
     credentials: ['Bachelor of Accounting, University of Johannesburg', 'Postgraduate Diploma in Accounting, Milpark Education'],
     imageUrl: 'https://picsum.photos/seed/mbali/400/400',
     bio: "As the driving force behind ONLINE S'COOL, Mbali combines her expertise as a Chartered Accountant with a passion for empowering students to achieve academic excellence."
   },
   {
     name: 'Mduduzi Masilela',
-    title: 'Director, Course Co-ordinator & Tutor',
+    title: 'Course Co-ordinator & Tutor',
     credentials: ['Bcom Actuarial Science, University of Cape Town', 'Technical Member of Actuarial Society of South Africa'],
     imageUrl: 'https://picsum.photos/seed/mduduzi/400/400',
     bio: "A near-qualified Actuary from UCT, Mduduzi is the architect of our curriculum. He excels at breaking down complex mathematical concepts into understandable lessons."
@@ -35,7 +35,7 @@ export const PRICING_PACKAGES: PricingPackage[] = [
       'Sign up before 31 Jan 2026 (2026 Intake)',
       'DBE & IEB Syllabus Coverage',
       '2 x 2-hour lessons per week',
-      'Wednesday evenings & Sunday mornings',
+      'Weekly 1-hour Q&A support session',
       'Access to recorded lessons'
     ]
   },
@@ -46,9 +46,9 @@ export const PRICING_PACKAGES: PricingPackage[] = [
       'Back to School Offer: 50% OFF (Usually R1300)',
       'Sign up before 31 Jan 2026 (2026 Intake)',
       'All Online Classes features',
+      'Weekly 1-hour Q&A support session',
       'Monthly 4-hour in-person workshop',
-      'Location: Rosebank/Sandton area (JHB)',
-      'Must be able to travel to venue'
+      'Location: Rosebank/Sandton area (JHB)'
     ],
     highlight: true
   }
@@ -71,9 +71,9 @@ export const FEATURES: FeatureInfo[] = [
     description: 'Comprehensive coverage of both the Department of Basic Education (DBE) and Independent Examinations Board (IEB) curricula.'
   },
    {
-    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>,
-    title: 'Elite Academic Quality',
-    description: 'We prioritise excellence through rigorous tutor selection and a methodology that transforms struggling students into top achievers.'
+    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>,
+    title: 'Personalised Q&A Sessions',
+    description: 'Weekly sessions where students can bring specific challenges from their own schools for expert guidance.'
   }
 ];
 
@@ -97,12 +97,16 @@ export const TESTIMONIALS: Testimonial[] = [
 
 export const FAQS: FAQItem[] = [
     {
+        question: "What is the 1-hour weekly Q&A session?",
+        answer: "This is a dedicated time every week for students to bring any mathematical questions they have or specific challenges they've faced in their school lessons recently. It ensures that our support extends beyond our curriculum to help them excel in their daily schoolwork."
+    },
+    {
         question: "What grades and subjects do you currently offer?",
-        answer: "We specialise in mathematics for Grade 10, Grade 11, and Grade 12 students. We cover both the DBE and IEB syllabuses. We are planning to expand to include other subjects like Physics, IT, and Accounting in the future."
+        answer: "We specialise in mathematics for Grade 10, Grade 11 and Grade 12 students. We cover both the DBE and IEB syllabuses. We are planning to expand to include other subjects like Physics, IT and Accounting in the future."
     },
     {
         question: "How are the online classes conducted?",
-        answer: "Our lessons are conducted live on Microsoft Teams. We use iPads and Apple Pencils to create an interactive and engaging digital whiteboard experience. All sessions are recorded, so students can review them anytime."
+        answer: "Our lessons are conducted live on Zoom. We provide a highly interactive and engaging digital experience. All sessions are recorded, so students can review them anytime."
     },
     {
         question: "What is the Back to School Offer?",
@@ -113,8 +117,8 @@ export const FAQS: FAQItem[] = [
         answer: "The monthly 4-hour workshops are held in the Rosebank/Sandton area of Johannesburg. Please ensure you are able to travel to this area if you choose the Workshop package."
     },
     {
-        question: "How is ONLINE S'COOL different from other tutoring platforms?",
-        answer: "We differentiate ourselves through our holistic, school-like structure with consistent, in-house tutors (not freelancers), and a focus on both DBE and IEB curricula. Our competitive pricing and unwavering commitment to high-calibre, university-standard instruction also set us apart."
+        question: "Why do you only take new learners at the start of the year?",
+        answer: "At ONLINE S'COOL, we believe mathematics is a language of logic that requires time to master. By starting at the beginning of the academic year, we have the necessary 'runway' to build deep, unshakable conceptual foundations rather than just memorising steps. We are advocates for lifelong learning; true success comes from consistent growth and understanding, not last-minute cramming. Starting early ensures that by exam season, our students aren't just surviving—they are thriving."
     }
 ];
 
@@ -229,7 +233,7 @@ export const SAMPLE_STUDENTS: Student[] = [
     dateJoined: '2025-01-05T08:00:00Z',
     paymentStatus: 'Paid',
     lastAttendance: '2025-05-07',
-    teamsLink: 'https://teams.microsoft.com/l/meetup-join/grade12'
+    zoomLink: 'https://zoom.us/j/grade12'
   },
   {
     id: 's2',
@@ -243,14 +247,15 @@ export const SAMPLE_STUDENTS: Student[] = [
     dateJoined: '2025-01-15T12:00:00Z',
     paymentStatus: 'Overdue',
     lastAttendance: '2025-05-07',
-    teamsLink: 'https://teams.microsoft.com/l/meetup-join/grade11'
+    zoomLink: 'https://zoom.us/j/grade11'
   }
 ];
 
-export const CLASS_SCHEDULE: ClassSession[] = [
-  { id: 'c1', grade: 'Grade 12', day: 'Wednesday', time: '18:00 - 20:00', topic: 'Calculus - Limits & Continuity', tutor: 'Mduduzi Masilela' },
-  { id: 'c2', grade: 'Grade 11', day: 'Wednesday', time: '18:00 - 20:00', topic: 'Functions - Parabola & Hyperbola', tutor: 'Lawrence Mashiane' },
-  { id: 'c3', grade: 'Grade 10', day: 'Wednesday', time: '18:00 - 20:00', topic: 'Algebra - Factorisation', tutor: 'Mbali Mashiyane' },
-  { id: 'c4', grade: 'All Grades', day: 'Sunday', time: '09:00 - 11:00', topic: 'Exam Preparation & Q&A', tutor: 'Rotation' },
+export const CLASS_SCHEDULE: any[] = [
+  { id: 'c1', grade: 'Grade 12', day: 'Monday', time: '18:00 - 20:00', topic: 'Calculus - Limits & Continuity', tutor: 'Mduduzi Masilela' },
+  { id: 'c2', grade: 'Grade 11', day: 'Monday', time: '18:00 - 20:00', topic: 'Functions - Parabola & Hyperbola', tutor: 'Lawrence Mashiane' },
+  { id: 'c3', grade: 'Grade 10', day: 'Monday', time: '18:00 - 20:00', topic: 'Algebra - Factorisation', tutor: 'Mbali Mashiyane' },
+  { id: 'q1', grade: 'All Grades', day: 'Saturday', time: '08:00 - 09:00', topic: 'Live Q&A: Bring Your School Questions', tutor: 'Mduduzi Masilela' },
+  { id: 'c4', grade: 'All Grades', day: 'Saturday', time: '09:00 - 11:00', topic: 'Exam Preparation & Q&A Rotation', tutor: 'Rotation' },
   { id: 'w1', grade: 'Workshop Group', day: 'Workshop', time: '09:00 - 13:00', topic: 'Trigonometry Deep Dive', tutor: 'Mduduzi & Lawrence' }
 ];

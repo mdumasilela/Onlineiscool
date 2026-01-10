@@ -16,8 +16,8 @@ const ScheduleManager: React.FC = () => {
                         <div>
                             <div className="flex justify-between items-start mb-4">
                                 <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border ${
-                                    session.day === 'Wednesday' ? 'bg-blue-500/10 text-blue-400 border-blue-500/20' :
-                                    session.day === 'Sunday' ? 'bg-purple-500/10 text-purple-400 border-purple-500/20' :
+                                    session.day === 'Monday' ? 'bg-blue-500/10 text-blue-400 border-blue-500/20' :
+                                    session.day === 'Saturday' ? 'bg-purple-500/10 text-purple-400 border-purple-500/20' :
                                     'bg-yellow-500/10 text-yellow-400 border-yellow-500/20'
                                 }`}>
                                     {session.day}

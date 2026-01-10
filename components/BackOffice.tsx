@@ -32,7 +32,7 @@ const BackOffice: React.FC<BackOfficeProps> = ({ onExit }) => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === 'admin123') {
+    if (password === 'admin167431') {
       setIsAuthenticated(true);
       setError('');
     } else {

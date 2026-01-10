@@ -7,6 +7,7 @@ const Contact: React.FC = () => {
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [selectedPackage, setSelectedPackage] = useState('Online Classes - R500/month');
+    const [submissionType, setSubmissionType] = useState<'enrollment' | 'consultation'>('enrollment');
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -20,7 +21,7 @@ const Contact: React.FC = () => {
             email: formData.get('email') as string,
             phone: formData.get('phone') as string,
             grade: formData.get('grade') as string,
-            package: selectedPackage,
+            package: submissionType === 'consultation' ? 'Free Consultation Requested' : selectedPackage,
         };
 
         const result = await sendLeadEmail(data);
@@ -33,15 +34,26 @@ const Contact: React.FC = () => {
         setIsSubmitting(false);
     };
 
+    const toggleToConsultation = () => {
+        setSubmissionType('consultation');
+        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    };
+
   return (
     <section id="contact" className="py-20 md:py-28 bg-slate-800/50">
       <div className="container mx-auto px-4 max-w-2xl">
         <div className="text-center mb-12">
           <div className="inline-block bg-yellow-500/20 text-yellow-500 px-4 py-1 rounded-full text-xs font-bold mb-4 border border-yellow-500/30 uppercase tracking-widest">
-            Back to School Special
+            {submissionType === 'enrollment' ? 'Back to School Special' : 'Expert Guidance'}
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">Secure Your 50% Discount</h2>
-          <p className="text-gray-400 mt-2">Fill out the form to lock in your special rate before 31 January 2026.</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
+            {submissionType === 'enrollment' ? 'Secure Your 50% Discount' : 'Book a Free Consultation'}
+          </h2>
+          <p className="text-gray-400 mt-2">
+            {submissionType === 'enrollment' 
+                ? 'Fill out the form to lock in your special rate before 31 January 2026.' 
+                : 'Not sure which plan fits? Chat with our experts to find the perfect path for your child.'}
+          </p>
         </div>
 
         {submitted ? (
@@ -51,11 +63,32 @@ const Contact: React.FC = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                 </div>
-                <h3 className="text-3xl font-bold mb-4">You're on the list!</h3>
-                <p className="text-lg mb-6 leading-relaxed">We've just sent an automated <strong>Onboarding Information Request</strong> to your inbox from <span className="text-cyan-400 font-semibold underline decoration-cyan-500/30">admissions@onlineiscool.co.za</span>.</p>
-                <div className="bg-cyan-800/20 p-4 rounded-lg border border-cyan-700/30">
-                    <p className="text-sm italic">Please check your inbox (and spam folder) to complete the next steps. Once finished, we'll reach out to schedule your intro call.</p>
-                </div>
+                <h3 className="text-3xl font-bold mb-4">
+                    {submissionType === 'enrollment' ? "You're on the list!" : "Request Received!"}
+                </h3>
+                
+                {submissionType === 'enrollment' ? (
+                    <div className="animate-fade-in">
+                        <p className="text-lg mb-6 leading-relaxed">We've just sent an automated <strong>Onboarding Information Request</strong> to your inbox from <span className="text-cyan-400 font-semibold underline decoration-cyan-500/30">admissions@onlineiscool.co.za</span>.</p>
+                        <div className="bg-cyan-800/20 p-4 rounded-lg border border-cyan-700/30">
+                            <p className="text-sm italic">Please check your inbox to complete the next steps. Once finished, we'll reach out to schedule your intro call.</p>
+                        </div>
+                    </div>
+                ) : (
+                    <div className="animate-fade-in">
+                        <p className="text-lg mb-6 leading-relaxed">Thank you for reaching out! One of our <strong>expert tutors or our course-coordinator</strong> will get in touch with you shortly to discuss your child's academic goals.</p>
+                        <div className="bg-cyan-800/20 p-4 rounded-lg border border-cyan-700/30">
+                            <p className="text-sm italic">We look forward to helping you unlock your child's full mathematical potential.</p>
+                        </div>
+                    </div>
+                )}
+                
+                <button 
+                    onClick={() => {setSubmitted(false); setSubmissionType('enrollment');}} 
+                    className="mt-8 text-cyan-400 hover:text-white text-xs font-bold uppercase tracking-widest transition"
+                >
+                    ← Back to form
+                </button>
             </div>
         ) : (
             <form onSubmit={handleSubmit} className="bg-slate-800 p-8 rounded-2xl shadow-2xl space-y-6 border border-slate-700">
@@ -96,21 +129,29 @@ const Contact: React.FC = () => {
                         </select>
                     </div>
                     <div>
-                        <label htmlFor="package" className="block text-[10px] font-bold text-gray-500 mb-1 uppercase tracking-wider">Choose a Package</label>
-                        <select 
-                            id="package" 
-                            required 
-                            value={selectedPackage}
-                            onChange={(e) => setSelectedPackage(e.target.value)}
-                            className="w-full bg-slate-700/50 border border-slate-600 text-white rounded-lg p-3 focus:ring-2 focus:ring-cyan-500 outline-none transition"
-                        >
-                            <option>Online Classes - R500/month</option>
-                            <option>Online + Workshop - R650/month</option>
-                        </select>
+                        <label htmlFor="package" className="block text-[10px] font-bold text-gray-500 mb-1 uppercase tracking-wider">
+                            {submissionType === 'enrollment' ? 'Choose a Package' : 'Enquiry Type'}
+                        </label>
+                        {submissionType === 'enrollment' ? (
+                            <select 
+                                id="package" 
+                                required 
+                                value={selectedPackage}
+                                onChange={(e) => setSelectedPackage(e.target.value)}
+                                className="w-full bg-slate-700/50 border border-slate-600 text-white rounded-lg p-3 focus:ring-2 focus:ring-cyan-500 outline-none transition"
+                            >
+                                <option>Online Classes - R500/month</option>
+                                <option>Online + Workshop - R650/month</option>
+                            </select>
+                        ) : (
+                            <div className="w-full bg-slate-700/50 border border-slate-600 text-cyan-400 font-bold rounded-lg p-3 flex items-center">
+                                Free Consultation Request
+                            </div>
+                        )}
                     </div>
                 </div>
 
-                {selectedPackage.includes('Workshop') && (
+                {submissionType === 'enrollment' && selectedPackage.includes('Workshop') && (
                     <div className="bg-yellow-500/10 border border-yellow-500/30 p-4 rounded-lg flex items-start gap-3 animate-fade-in">
                         <input type="checkbox" id="travelConfirm" required className="mt-1 w-4 h-4 text-cyan-500 rounded border-gray-300 focus:ring-cyan-500 cursor-pointer" />
                         <label htmlFor="travelConfirm" className="text-sm text-yellow-500 font-medium cursor-pointer">
@@ -131,13 +172,24 @@ const Contact: React.FC = () => {
                                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                 </svg>
-                                Connecting...
+                                {submissionType === 'enrollment' ? 'Enrolling...' : 'Requesting...'}
                             </div>
-                        ) : "Secure My Spot (50% OFF)"}
+                        ) : (submissionType === 'enrollment' ? "Secure My Spot (50% OFF)" : "Schedule My Consultation")}
                     </button>
-                    <p className="text-center text-gray-500 text-[10px] mt-4 uppercase tracking-widest font-bold">
-                        Offer valid for 2026 intake signups before 31 January 2026.
-                    </p>
+                    <div className="flex flex-col items-center gap-2 mt-4">
+                        <p className="text-gray-500 text-[10px] uppercase tracking-widest font-bold">
+                            {submissionType === 'enrollment' ? 'Offer valid for 2026 intake until 31 January.' : 'Average response time: 2-4 hours.'}
+                        </p>
+                        {submissionType === 'enrollment' ? (
+                            <button type="button" onClick={() => setSubmissionType('consultation')} className="text-cyan-400 text-[10px] font-bold uppercase hover:underline">
+                                Prefer to book a consultation first?
+                            </button>
+                        ) : (
+                            <button type="button" onClick={() => setSubmissionType('enrollment')} className="text-yellow-500 text-[10px] font-bold uppercase hover:underline">
+                                Want to secure the 50% discount now?
+                            </button>
+                        )}
+                    </div>
                 </div>
             </form>
         )}

@@ -13,6 +13,7 @@ KEY SELLING POINTS:
 4. URGENT OFFER: 50% OFF Back to School Special (R500/pm instead of R1000).
 5. DEADLINE: Must sign up before 31 January 2026 for the 2026 intake.
 6. SLOGAN: "Knowledge is the key".
+7. TECHNOLOGY: Classes are conducted via Zoom.
 `;
 
 const getPromptForType = (type: MarketingCopyType, leadContext?: string): string => {
@@ -26,7 +27,7 @@ This is sent immediately after a lead registers.
 2. BODY: Warmly welcome them.
 3. REQUEST: Ask them to complete the "Student Success Profile" form.
 4. FORM DETAILS: Explicitly mention we need: School Name, Curriculum (DBE/IEB), Recent Math Marks, and specific struggle areas (e.g., Geometry/Functions).
-5. TECH: Ask them to confirm they have a tablet/laptop for Microsoft Teams sessions.
+5. TECH: Ask them to confirm they have a tablet/laptop for Zoom sessions.
 6. DEADLINE: Remind them to complete this by 31 January 2026 to lock in the 50% discount.`;
     default:
       return `${businessContext}
@@ -39,7 +40,6 @@ export const generateMarketingCopy = async (copyType: MarketingCopyType, leadCon
     throw new Error("API_KEY_REQUIRED");
   }
 
-  // Create fresh instance before each call to ensure latest API key
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   
   try {
@@ -53,7 +53,6 @@ export const generateMarketingCopy = async (copyType: MarketingCopyType, leadCon
       }
     });
 
-    // Access .text property directly as per guidelines
     const text = response.text;
     if (!text) throw new Error("AI returned empty content.");
     return text;

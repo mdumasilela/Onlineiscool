@@ -3,7 +3,10 @@ import React from 'react';
 
 const CallToAction: React.FC = () => {
     const scrollToContact = () => {
-        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
   return (
