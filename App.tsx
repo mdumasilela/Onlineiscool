@@ -18,22 +18,46 @@ const App: React.FC = () => {
   const [view, setView] = useState<'public' | 'back-office'>('public');
 
   useEffect(() => {
-    const handleHashChange = () => {
-      if (window.location.hash === '#back-office') {
+    const handleNavigation = () => {
+      const path = window.location.pathname;
+      const hash = window.location.hash;
+
+      // Handle Back Office
+      if (hash === '#back-office' || path === '/back-office') {
         setView('back-office');
-      } else {
-        setView('public');
+        return;
+      }
+
+      setView('public');
+
+      // Handle specific sublinks like /contact
+      // We check for path or hash to be robust
+      if (path === '/contact' || hash === '#contact') {
+        setTimeout(() => {
+          document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      } else if (path === '/diagnostic' || hash === '#diagnostic-test') {
+        setTimeout(() => {
+          document.getElementById('diagnostic-test')?.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
       }
     };
 
-    window.addEventListener('hashchange', handleHashChange);
-    handleHashChange();
+    window.addEventListener('hashchange', handleNavigation);
+    window.addEventListener('popstate', handleNavigation);
+    
+    // Initial check
+    handleNavigation();
 
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    return () => {
+      window.removeEventListener('hashchange', handleNavigation);
+      window.removeEventListener('popstate', handleNavigation);
+    };
   }, []);
 
   if (view === 'back-office') {
     return <BackOffice onExit={() => {
+      window.history.pushState({}, '', '/');
       window.location.hash = '';
       setView('public');
     }} />;
