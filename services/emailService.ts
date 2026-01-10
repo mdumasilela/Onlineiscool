@@ -1,11 +1,9 @@
 
 /**
  * Email Service for ONLINE S'COOL
- * This handles sending lead data to admissions@onlineiscool.co.za
- * via Formspree.
+ * This handles sending lead data to admissions@onlineiscool.co.za via Formspree.
  */
 
-// Fix: explicit 'string' type prevents TS comparison errors with other string literals
 const FORMSPREE_ID: string = "xrebnlvq"; 
 
 export interface LeadData {
@@ -19,36 +17,47 @@ export interface LeadData {
 
 export const sendLeadEmail = async (data: LeadData): Promise<{ success: boolean; message: string }> => {
   try {
-    // We send the data to a form provider which forwards it to admissions@onlineiscool.co.za
+    // Formspree expects specific keys for special handling
+    const payload = {
+      _subject: `WEBSITE LEAD: ${data.studentName} (${data.grade})`,
+      _replyto: data.email, // Allows you to click 'Reply' in your email client
+      parentName: data.parentName,
+      studentName: data.studentName,
+      studentGrade: data.grade,
+      selectedPackage: data.package,
+      contactPhone: data.phone,
+      contactEmail: data.email,
+      message: `New enrollment/enquiry for ${data.studentName}.
+      Parent: ${data.parentName}
+      Grade: ${data.grade}
+      Package: ${data.package}
+      Phone: ${data.phone}`
+    };
+
     const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      body: JSON.stringify({
-        _subject: `New ONLINE S'COOL Lead: ${data.studentName} (${data.grade})`,
-        ...data,
-        official_contact: 'admissions@onlineiscool.co.za'
-      })
+      body: JSON.stringify(payload)
     });
 
     if (response.ok) {
       return { success: true, message: "Lead successfully sent to admissions team." };
     } else {
       const errorData = await response.json();
-      throw new Error(errorData.error || "Failed to send email");
+      console.error("Formspree Error:", errorData);
+      return { 
+        success: false, 
+        message: "Formspree rejected the request. Please check if the form is verified at Formspree.io." 
+      };
     }
   } catch (error) {
-    console.error("Email Connection Error:", error);
-    
-    // Fallback logic for production vs development
-    // Fix: comparison is now allowed as FORMSPREE_ID is typed as a broad string instead of a strict literal
-    if (FORMSPREE_ID === "YOUR_FORM_ID_HERE") {
-        console.warn("Email not connected. Please add your FORMSPREE_ID.");
-        return new Promise((resolve) => setTimeout(() => resolve({ success: true, message: "Demo mode activated." }), 1500));
-    }
-    
-    return { success: false, message: "Could not connect to email server. Please try again or email admissions@onlineiscool.co.za directly." };
+    console.error("Network Error sending lead:", error);
+    return { 
+      success: false, 
+      message: "Network error. Please email admissions@onlineiscool.co.za directly while we investigate." 
+    };
   }
 };

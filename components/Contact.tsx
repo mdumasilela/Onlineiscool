@@ -24,14 +24,18 @@ const Contact: React.FC = () => {
             package: submissionType === 'consultation' ? 'Free Consultation Requested' : selectedPackage,
         };
 
-        const result = await sendLeadEmail(data);
-
-        if (result.success) {
-            setSubmitted(true);
-        } else {
-            setError(result.message);
+        try {
+            const result = await sendLeadEmail(data);
+            if (result.success) {
+                setSubmitted(true);
+            } else {
+                setError(result.message);
+            }
+        } catch (err) {
+            setError("Something went wrong on our end. Please try again or email us directly.");
+        } finally {
+            setIsSubmitting(false);
         }
-        setIsSubmitting(false);
     };
 
     const toggleToConsultation = () => {
