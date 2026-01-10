@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,17 +10,72 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230f172a%22/><path d=%22M50 25L15 40L50 55L85 40L50 25Z%22 fill=%22%2322d3ee%22/><path d=%22M25 45V65C25 65 35 75 50 75C65 75 75 65 75 65V45L50 55L25 45Z%22 fill=%22%2322d3ee%22/><circle cx=%2285%22 cy=%2255%22 r=%225%22 fill=%22%2322d3ee%22/><line x1=%2285%22 y1=%2240%22 x2=%2285%22 y2=%2255%22 stroke=%22%2322d3ee%22 stroke-width=%222%22/></svg>">
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="ONLINE S'COOL offers expert mathematics tutoring for Grade 10, 11, and 12 students in South Africa. 50% Back to School Offer! UCT graduate tutors, online classes, and Johannesburg workshops." />
-    <meta name="keywords" content="math tutoring south africa, grade 12 maths help, grade 11 mathematics, grade 10 math tutor, online school south africa, matric maths, rosebank math workshop" />
+    <meta name="description" content="Unlock your math potential with ONLINE S'COOL. Premium mathematics tutoring for Grade 10-12 IEB & DBE students. 50% Back to School discount available until 31 January 2026. UCT Actuarial Science tutors." />
+    <meta name="keywords" content="math tutoring south africa, grade 12 maths help, grade 11 mathematics, grade 10 math tutor, online school south africa, matric maths, rosebank math workshop, IEB maths tutor, DBE mathematics" />
     <meta name="author" content="ONLINE S'COOL" />
-    <link rel="canonical" href="https://onlinescool.co.za" />
+    <meta name="robots" content="index, follow" />
+    <meta name="geo.region" content="ZA-GP" />
+    <meta name="geo.placename" content="Johannesburg" />
+    <link rel="canonical" href="https://www.onlineiscool.co.za" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://onlinescool.co.za" />
-    <meta property="og:title" content="ONLINE S'COOL | Knowledge is the Key" />
-    <meta property="og:description" content="Boost your math grades with expert tutoring from UCT graduates. Special 50% Back to School Offer available now!" />
-    <meta property="og:image" content="https://onlinescool.co.za/og-image.jpg" />
+    <meta property="og:url" content="https://www.onlineiscool.co.za" />
+    <meta property="og:title" content="ONLINE S'COOL | Expert Math Tutoring South Africa" />
+    <meta property="og:description" content="Specialised math tutoring for Grade 10-12. 50% OFF Back to School Special! Online classes and Johannesburg workshops." />
+    <meta property="og:image" content="https://www.onlineiscool.co.za/og-image.jpg" />
+    <meta property="og:site_name" content="ONLINE S'COOL" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.onlineiscool.co.za" />
+    <meta property="twitter:title" content="ONLINE S'COOL | Math Excellence" />
+    <meta property="twitter:description" content="Expert math tutoring for IEB & DBE students. Secure your 50% discount today." />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "ONLINE S'COOL",
+      "url": "https://www.onlineiscool.co.za",
+      "logo": "https://www.onlineiscool.co.za/logo.png",
+      "description": "Premium online and in-person mathematics tutoring specialising in Grade 10-12 IEB and DBE curricula in South Africa.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rosebank",
+        "addressRegion": "Gauteng",
+        "addressCountry": "ZA"
+      },
+      "priceRange": "R500-R1300",
+      "founder": [
+        {
+          "@type": "Person",
+          "name": "Mbali Mashiyane"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Mathematics Tutoring Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Grade 10-12 Online Math Classes"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Monthly Math Workshops Rosebank"
+            }
+          }
+        ]
+      }
+    }
+    </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +84,7 @@
     <style>
       body {
         font-family: 'Poppins', sans-serif;
-        background-color: #0f172a; /* matches bg-slate-900 */
+        background-color: #0f172a; 
         margin: 0;
         color: #f8fafc;
         min-height: 100vh;
@@ -52,17 +107,17 @@
       }
     </style>
     <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@19.0.0",
-    "react-dom": "https://esm.sh/react-dom@19.0.0",
-    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
-    "@google/genai": "https://esm.sh/@google/genai@1.24.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/"
-  }
-}
-</script>
+    {
+      "imports": {
+        "react": "https://esm.sh/react@19.0.0",
+        "react-dom": "https://esm.sh/react-dom@19.0.0",
+        "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+        "@google/genai": "https://esm.sh/@google/genai@1.24.0",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "react/": "https://esm.sh/react@^19.2.3/"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

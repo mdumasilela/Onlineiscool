@@ -1,5 +1,15 @@
 {
   "name": "ONLINE S'COOL Website",
-  "description": "A modern, professional website for ONLINE S'COOL, an online tutoring service specialising in mathematics for high school students. The site features service details, pricing, team information, and an AI-powered marketing copy generator.",
-  "requestFramePermissions": []
+  "description": "A modern, professional website for ONLINE S'COOL, an online tutoring service specialising in mathematics for high school students. Optimized for South African educational search traffic.",
+  "requestFramePermissions": [],
+  "homepage": "https://www.onlineiscool.co.za",
+  "keywords": [
+    "math",
+    "IEB",
+    "DBE",
+    "Grade 12",
+    "tutoring",
+    "South Africa",
+    "Johannesburg"
+  ]
 }
