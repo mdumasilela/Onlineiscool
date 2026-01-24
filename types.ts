@@ -7,6 +7,7 @@ export interface Tutor {
   credentials: string[];
   imageUrl: string;
   bio: string;
+  moreInfoUrl?: string;
 }
 
 export interface PricingPackage {

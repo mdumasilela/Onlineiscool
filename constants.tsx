@@ -15,7 +15,8 @@ export const TUTORS: Tutor[] = [
     title: 'Course Co-ordinator & Tutor',
     credentials: ['Bcom Actuarial Science, University of Cape Town', 'Technical Member of Actuarial Society of South Africa'],
     imageUrl: 'https://picsum.photos/seed/mduduzi/400/400',
-    bio: "A near-qualified Actuary from UCT, Mduduzi is the architect of our curriculum. He excels at breaking down complex mathematical concepts into understandable lessons."
+    bio: "A near-qualified Actuary from UCT, Mduduzi is the architect of our curriculum. He excels at breaking down complex mathematical concepts into understandable lessons.",
+    moreInfoUrl: 'https://enke.co.za/mduduzi-extra-lessons-aficionado/'
   },
   {
     name: 'Lawrence Mashiane',

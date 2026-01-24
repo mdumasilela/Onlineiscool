@@ -4,7 +4,7 @@ import { TUTORS } from '../constants';
 import { Tutor } from '../types';
 
 const TutorCard: React.FC<{ tutor: Tutor }> = ({ tutor }) => (
-    <div className="bg-slate-800 rounded-lg shadow-lg overflow-hidden text-center p-6 transform transition duration-300 hover:scale-105 hover:shadow-cyan-500/20">
+    <div className="bg-slate-800 rounded-lg shadow-lg overflow-hidden text-center p-6 transform transition duration-300 hover:scale-105 hover:shadow-cyan-500/20 flex flex-col h-full">
         <img 
             src={tutor.imageUrl} 
             alt={`Mathematics Tutor ${tutor.name} - ${tutor.title}`} 
@@ -16,7 +16,22 @@ const TutorCard: React.FC<{ tutor: Tutor }> = ({ tutor }) => (
         <div className="text-gray-400 text-sm">
             {tutor.credentials.map((cred, i) => <p key={i}>{cred}</p>)}
         </div>
-        <p className="text-gray-300 text-sm mt-4 italic">"{tutor.bio}"</p>
+        <p className="text-gray-300 text-sm mt-4 italic flex-grow">"{tutor.bio}"</p>
+        {tutor.moreInfoUrl && (
+          <div className="mt-6">
+            <a 
+              href={tutor.moreInfoUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-cyan-400 hover:text-white text-xs font-bold uppercase tracking-widest transition"
+            >
+              Read More
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        )}
     </div>
 );
 
