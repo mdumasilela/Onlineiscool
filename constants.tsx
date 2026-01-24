@@ -37,7 +37,8 @@ export const PRICING_PACKAGES: PricingPackage[] = [
       '2 x 2-hour lessons per week',
       'Weekly 1-hour Q&A support session',
       'Access to recorded lessons'
-    ]
+    ],
+    highlight: true
   },
   {
     title: 'Online Classes + Workshop',
@@ -49,8 +50,7 @@ export const PRICING_PACKAGES: PricingPackage[] = [
       'Weekly 1-hour Q&A support session',
       'Monthly 4-hour in-person workshop',
       'Location: Rosebank/Sandton area (JHB)'
-    ],
-    highlight: true
+    ]
   }
 ];
 
@@ -96,6 +96,10 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const FAQS: FAQItem[] = [
+    {
+        question: "When do classes officially start for 2026?",
+        answer: "Our 2026 academic year officially commences on Monday, 26 January 2026. We recommend enrolling early to ensure all onboarding is complete before the first session."
+    },
     {
         question: "What is the 1-hour weekly Q&A session?",
         answer: "This is a dedicated time every week for students to bring any mathematical questions they have or specific challenges they've faced in their school lessons recently. It ensures that our support extends beyond our curriculum to help them excel in their daily schoolwork."

@@ -19,9 +19,14 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/30 px-4 py-2 rounded-full mb-8 animate-bounce">
-            <span className="flex h-2 w-2 rounded-full bg-yellow-500"></span>
-            <span className="text-yellow-500 text-sm font-bold uppercase tracking-widest">50% OFF Back to School Offer - SIGN UP BY 31 JANUARY 2026 FOR 2026 INTAKE</span>
+        <div className="inline-flex flex-col gap-2 items-center mb-8 animate-fade-in">
+            <div className="bg-yellow-500/10 border border-yellow-500/30 px-4 py-2 rounded-full flex items-center gap-2">
+                <span className="flex h-2 w-2 rounded-full bg-yellow-500"></span>
+                <span className="text-yellow-500 text-sm font-bold uppercase tracking-widest">50% OFF Back to School Offer - SIGN UP BY 31 JANUARY</span>
+            </div>
+            <div className="text-cyan-400 text-xs font-bold uppercase tracking-[0.2em] mt-2">
+                Classes officially start Monday, 26 January 2026
+            </div>
         </div>
         <h1 className="text-4xl md:text-7xl font-bold text-white leading-tight mb-6">
           Unlock Your Math Potential. <br />

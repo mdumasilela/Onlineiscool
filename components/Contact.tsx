@@ -15,11 +15,22 @@ const Contact: React.FC = () => {
         setError(null);
 
         const formData = new FormData(e.currentTarget);
+        const phone = (formData.get('phone') as string).replace(/\s+/g, ''); // Strip spaces for validation
+        
+        // Regex for exactly 10 digits
+        const phoneRegex = /^\d{10}$/;
+        
+        if (!phoneRegex.test(phone)) {
+            setError("Please enter a valid 10-digit phone number (e.g., 0123456789).");
+            setIsSubmitting(false);
+            return;
+        }
+
         const data = {
             parentName: formData.get('parentName') as string,
             studentName: formData.get('studentName') as string,
             email: formData.get('email') as string,
-            phone: formData.get('phone') as string,
+            phone: phone, // Save the cleaned 10-digit version
             grade: formData.get('grade') as string,
             package: submissionType === 'consultation' ? 'Free Consultation Requested' : selectedPackage,
         };
@@ -119,8 +130,17 @@ const Contact: React.FC = () => {
                         <input type="email" name="email" id="email" placeholder="example@email.com" required className="w-full bg-slate-700/50 border border-slate-600 text-white rounded-lg p-3 focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition placeholder:text-gray-600" />
                     </div>
                     <div>
-                        <label htmlFor="phone" className="block text-[10px] font-bold text-gray-500 mb-1 uppercase tracking-wider">Phone Number</label>
-                        <input type="tel" name="phone" id="phone" placeholder="012 345 6789" required className="w-full bg-slate-700/50 border border-slate-600 text-white rounded-lg p-3 focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition placeholder:text-gray-600" />
+                        <label htmlFor="phone" className="block text-[10px] font-bold text-gray-500 mb-1 uppercase tracking-wider">Phone Number (10 Digits)</label>
+                        <input 
+                            type="tel" 
+                            name="phone" 
+                            id="phone" 
+                            placeholder="0123456789" 
+                            required 
+                            maxLength={10}
+                            minLength={10}
+                            className="w-full bg-slate-700/50 border border-slate-600 text-white rounded-lg p-3 focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition placeholder:text-gray-600" 
+                        />
                     </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
