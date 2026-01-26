@@ -39,7 +39,7 @@ export const PRICING_PACKAGES: PricingPackage[] = [
       'Weekly 1-hour Q&A support session',
       'Access to recorded lessons'
     ],
-    highlight: true
+    highlight: true // Marked as most popular
   },
   {
     title: 'Online Classes + Workshop',

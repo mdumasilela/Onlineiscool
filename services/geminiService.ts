@@ -11,9 +11,10 @@ KEY SELLING POINTS:
 2. SYLLABUS: Deep expertise in both DBE (National) and IEB (Private) curricula.
 3. PHYSICAL COMPONENT: Monthly 4-hour high-impact workshops in Rosebank/Sandton, JHB.
 4. URGENT OFFER: 50% OFF Back to School Special (R500/pm instead of R1000).
-5. DEADLINE: Must sign up before 31 January 2026 for the 2026 intake.
-6. SLOGAN: "Knowledge is the key".
-7. TECHNOLOGY: Classes are conducted via Zoom.
+5. POPULARITY: Our "Online Classes" package is the most popular choice among students for its convenience and impact.
+6. DEADLINE: Must sign up before 31 January 2026 for the 2026 intake.
+7. SLOGAN: "Knowledge is the key".
+8. TECHNOLOGY: Classes are conducted via Zoom.
 `;
 
 const getPromptForType = (type: MarketingCopyType, leadContext?: string): string => {
@@ -25,13 +26,16 @@ Write a COMPREHENSIVE enrollment invitation email.
 This is sent immediately after a lead registers.
 1. SUBJECT: Action Required: Finalise 2026 Math Enrollment for ${leadContext?.split(',')[0]}
 2. BODY: Warmly welcome them.
-3. REQUEST: Ask them to complete the "Student Success Profile" form.
-4. FORM DETAILS: Explicitly mention we need: School Name, Curriculum (DBE/IEB), Recent Math Marks, and specific struggle areas (e.g., Geometry/Functions).
-5. TECH: Ask them to confirm they have a tablet/laptop for Zoom sessions.
-6. DEADLINE: Remind them to complete this by 31 January 2026 to lock in the 50% discount.`;
+3. POPULARITY: Mention that they've selected our most popular online package (if applicable).
+4. REQUEST: Ask them to complete the "Student Success Profile" form.
+5. FORM DETAILS: Explicitly mention we need: School Name, Curriculum (DBE/IEB), Recent Math Marks, and specific struggle areas (e.g., Geometry/Functions).
+6. TECH: Ask them to confirm they have a tablet/laptop for Zoom sessions.
+7. DEADLINE: Remind them to complete this by 31 January 2026 to lock in the 50% discount.`;
     default:
       return `${businessContext}
-Generate high-converting marketing copy for ${type}. Context: ${leadContext || 'General brand awareness'}.`;
+Generate high-converting marketing copy for ${type}. 
+Emphasize that Online Classes are the most popular option chosen by hundreds of students across South Africa.
+Context: ${leadContext || 'General brand awareness'}.`;
   }
 }
 

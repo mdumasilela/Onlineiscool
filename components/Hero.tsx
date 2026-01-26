@@ -24,8 +24,13 @@ const Hero: React.FC = () => {
                 <span className="flex h-2 w-2 rounded-full bg-yellow-500"></span>
                 <span className="text-yellow-500 text-sm font-bold uppercase tracking-widest">50% OFF Back to School Offer - SIGN UP BY 31 JANUARY</span>
             </div>
-            <div className="text-cyan-400 text-xs font-bold uppercase tracking-[0.2em] mt-2">
-                Classes officially start Monday, 26 January 2026
+            <div className="flex items-center gap-2 mt-2">
+              <span className="bg-cyan-500/20 text-cyan-400 text-[10px] font-bold px-3 py-1 rounded-full border border-cyan-500/30 uppercase tracking-widest animate-pulse">
+                Most Popular Choice: Online Classes
+              </span>
+              <div className="text-gray-500 text-[10px] font-bold uppercase tracking-[0.2em]">
+                  Intake starts 26 Jan 2026
+              </div>
             </div>
         </div>
         <h1 className="text-4xl md:text-7xl font-bold text-white leading-tight mb-6">

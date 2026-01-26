@@ -13,6 +13,7 @@ import CallToAction from './components/CallToAction';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BackOffice from './components/BackOffice';
+import WhatsAppFAB from './components/WhatsAppFAB';
 
 const App: React.FC = () => {
   const [view, setView] = useState<'public' | 'back-office'>('public');
@@ -31,7 +32,6 @@ const App: React.FC = () => {
       setView('public');
 
       // Handle specific sublinks like /contact
-      // We check for path or hash to be robust
       if (path === '/contact' || hash === '#contact') {
         setTimeout(() => {
           document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
@@ -79,6 +79,7 @@ const App: React.FC = () => {
         <Contact />
       </main>
       <Footer />
+      <WhatsAppFAB />
     </div>
   );
 };
