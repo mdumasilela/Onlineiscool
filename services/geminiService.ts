@@ -9,12 +9,11 @@ OFFICIAL EMAIL: admissions@onlineiscool.co.za.
 KEY SELLING POINTS:
 1. FACULTY: Tutors are UCT Actuarial Science & Accounting graduates (Elite tier).
 2. SYLLABUS: Deep expertise in both DBE (National) and IEB (Private) curricula.
-3. PHYSICAL COMPONENT: Monthly 4-hour high-impact workshops in Rosebank/Sandton, JHB.
+3. TECHNOLOGY: High-impact online lessons conducted via Zoom.
 4. URGENT OFFER: 50% OFF Back to School Special (R500/pm instead of R1000).
 5. POPULARITY: Our "Online Classes" package is the most popular choice among students for its convenience and impact.
 6. DEADLINE: Must sign up before 31 January 2026 for the 2026 intake.
 7. SLOGAN: "Knowledge is the key".
-8. TECHNOLOGY: Classes are conducted via Zoom.
 `;
 
 const getPromptForType = (type: MarketingCopyType, leadContext?: string): string => {
@@ -26,7 +25,7 @@ Write a COMPREHENSIVE enrollment invitation email.
 This is sent immediately after a lead registers.
 1. SUBJECT: Action Required: Finalise 2026 Math Enrollment for ${leadContext?.split(',')[0]}
 2. BODY: Warmly welcome them.
-3. POPULARITY: Mention that they've selected our most popular online package (if applicable).
+3. POPULARITY: Mention that they've selected our popular online package.
 4. REQUEST: Ask them to complete the "Student Success Profile" form.
 5. FORM DETAILS: Explicitly mention we need: School Name, Curriculum (DBE/IEB), Recent Math Marks, and specific struggle areas (e.g., Geometry/Functions).
 6. TECH: Ask them to confirm they have a tablet/laptop for Zoom sessions.
@@ -34,7 +33,7 @@ This is sent immediately after a lead registers.
     default:
       return `${businessContext}
 Generate high-converting marketing copy for ${type}. 
-Emphasize that Online Classes are the most popular option chosen by hundreds of students across South Africa.
+Emphasize that Online Classes are the primary option chosen by hundreds of students across South Africa.
 Context: ${leadContext || 'General brand awareness'}.`;
   }
 }

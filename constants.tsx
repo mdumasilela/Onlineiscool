@@ -39,19 +39,7 @@ export const PRICING_PACKAGES: PricingPackage[] = [
       'Weekly 1-hour Q&A support session',
       'Access to recorded lessons'
     ],
-    highlight: true // Marked as most popular
-  },
-  {
-    title: 'Online Classes + Workshop',
-    price: 650,
-    features: [
-      'Back to School Offer: 50% OFF (Usually R1300)',
-      'Sign up before 31 Jan 2026 (2026 Intake)',
-      'All Online Classes features',
-      'Weekly 1-hour Q&A support session',
-      'Monthly 4-hour in-person workshop',
-      'Location: Rosebank/Sandton area (JHB)'
-    ]
+    highlight: true 
   }
 ];
 
@@ -85,7 +73,7 @@ export const TESTIMONIALS: Testimonial[] = [
         relation: 'Parent of a Grade 12 Student'
     },
     {
-        quote: "I used to dread math class, but the sessions here are actually fun and make sense. The workshop was a game-changer for me, helping me tackle the toughest problems for my final exams.",
+        quote: "I used to dread math class, but the sessions here are actually fun and make sense. The online platform is seamless.",
         name: 'Anika P.',
         relation: 'Grade 12 Student'
     },
@@ -107,7 +95,7 @@ export const FAQS: FAQItem[] = [
     },
     {
         question: "What grades and subjects do you currently offer?",
-        answer: "We specialise in mathematics for Grade 10, Grade 11 and Grade 12 students. We cover both the DBE and IEB syllabuses. We are planning to expand to include other subjects like Physics, IT and Accounting in the future."
+        answer: "We specialise in mathematics for Grade 10, Grade 11 and Grade 12 students. We cover both the DBE and IEB syllabuses."
     },
     {
         question: "How are the online classes conducted?",
@@ -116,10 +104,6 @@ export const FAQS: FAQItem[] = [
     {
         question: "What is the Back to School Offer?",
         answer: "We are offering a massive 50% discount on all our monthly packages if you sign up before 31 January 2026! This is our way of helping students kickstart their 2026 academic year with the best support."
-    },
-    {
-        question: "Where do the in-person workshops take place?",
-        answer: "The monthly 4-hour workshops are held in the Rosebank/Sandton area of Johannesburg. Please ensure you are able to travel to this area if you choose the Workshop package."
     },
     {
         question: "Why do you only take new learners at the start of the year?",
@@ -208,7 +192,7 @@ export const SAMPLE_LEADS: Lead[] = [
     email: 'lerato@example.com',
     phone: '082 111 2222',
     grade: 'Grade 11',
-    package: 'Online + Workshop',
+    package: 'Online Classes',
     status: 'New',
     dateJoined: '2025-05-10T10:30:00Z'
   },
@@ -233,7 +217,7 @@ export const SAMPLE_STUDENTS: Student[] = [
     email: 'thabo@mokoena.co.za',
     phone: '071 222 3333',
     grade: 'Grade 12',
-    package: 'Online + Workshop',
+    package: 'Online Classes',
     status: 'Enrolled',
     dateJoined: '2025-01-05T08:00:00Z',
     paymentStatus: 'Paid',
@@ -261,6 +245,5 @@ export const CLASS_SCHEDULE: any[] = [
   { id: 'c2', grade: 'Grade 11', day: 'Monday', time: '18:00 - 20:00', topic: 'Functions - Parabola & Hyperbola', tutor: 'Lawrence Mashiane' },
   { id: 'c3', grade: 'Grade 10', day: 'Monday', time: '18:00 - 20:00', topic: 'Algebra - Factorisation', tutor: 'Mbali Mashiyane' },
   { id: 'q1', grade: 'All Grades', day: 'Saturday', time: '08:00 - 09:00', topic: 'Live Q&A: Bring Your School Questions', tutor: 'Mduduzi Masilela' },
-  { id: 'c4', grade: 'All Grades', day: 'Saturday', time: '09:00 - 11:00', topic: 'Exam Preparation & Q&A Rotation', tutor: 'Rotation' },
-  { id: 'w1', grade: 'Workshop Group', day: 'Workshop', time: '09:00 - 13:00', topic: 'Trigonometry Deep Dive', tutor: 'Mduduzi & Lawrence' }
+  { id: 'c4', grade: 'All Grades', day: 'Saturday', time: '09:00 - 11:00', topic: 'Exam Preparation & Q&A Rotation', tutor: 'Rotation' }
 ];

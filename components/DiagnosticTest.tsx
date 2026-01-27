@@ -50,7 +50,7 @@ const DiagnosticTest: React.FC = () => {
 
   const getRecommendation = (results: TopicResult[]) => {
     const weakTopics = results.filter(r => (r.score / r.total) < 0.6);
-    if (weakTopics.length === 0) return "Excellent work! You have a solid foundation. Consider our Advanced Workshop to maintain your edge.";
+    if (weakTopics.length === 0) return "Excellent work! You have a solid foundation. Our Online Classes can help you maintain your edge and aim for that distinction.";
     if (weakTopics.length > 2) return "You have some gaps in key foundational areas. We highly recommend our Online Classes to strengthen these concepts.";
     return `You're doing well, but ${weakTopics.map(t => t.topic).join(' and ')} could use some focus. Our tutors specialize in these topics!`;
   };

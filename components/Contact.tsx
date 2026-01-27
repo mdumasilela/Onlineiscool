@@ -49,11 +49,6 @@ const Contact: React.FC = () => {
         }
     };
 
-    const toggleToConsultation = () => {
-        setSubmissionType('consultation');
-        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-    };
-
   return (
     <section id="contact" className="py-20 md:py-28 bg-slate-800/50">
       <div className="container mx-auto px-4 max-w-2xl">
@@ -67,7 +62,7 @@ const Contact: React.FC = () => {
           <p className="text-gray-400 mt-2">
             {submissionType === 'enrollment' 
                 ? 'Fill out the form to lock in your special rate before 31 January 2026.' 
-                : 'Not sure which plan fits? Chat with our experts to find the perfect path for your child.'}
+                : 'Not sure if we are the right fit? Chat with our experts to find the perfect path for your child.'}
           </p>
         </div>
 
@@ -165,7 +160,6 @@ const Contact: React.FC = () => {
                                 className="w-full bg-slate-700/50 border border-slate-600 text-white rounded-lg p-3 focus:ring-2 focus:ring-cyan-500 outline-none transition"
                             >
                                 <option>Online Classes - R500/month</option>
-                                <option>Online + Workshop - R650/month</option>
                             </select>
                         ) : (
                             <div className="w-full bg-slate-700/50 border border-slate-600 text-cyan-400 font-bold rounded-lg p-3 flex items-center">
@@ -174,15 +168,6 @@ const Contact: React.FC = () => {
                         )}
                     </div>
                 </div>
-
-                {submissionType === 'enrollment' && selectedPackage.includes('Workshop') && (
-                    <div className="bg-yellow-500/10 border border-yellow-500/30 p-4 rounded-lg flex items-start gap-3 animate-fade-in">
-                        <input type="checkbox" id="travelConfirm" required className="mt-1 w-4 h-4 text-cyan-500 rounded border-gray-300 focus:ring-cyan-500 cursor-pointer" />
-                        <label htmlFor="travelConfirm" className="text-sm text-yellow-500 font-medium cursor-pointer">
-                            I confirm the learner is able to travel to the Rosebank/Sandton area (Johannesburg) for the monthly physical workshop.
-                        </label>
-                    </div>
-                )}
 
                 <div>
                     <button 

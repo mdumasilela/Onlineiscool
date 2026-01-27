@@ -15,8 +15,8 @@ const PricingCard: React.FC<{ pkg: PricingPackage }> = ({ pkg }) => {
     };
 
     return (
-        <div className={`bg-slate-800 rounded-lg p-8 shadow-lg flex flex-col relative ${pkg.highlight ? 'border-2 border-cyan-500 transform scale-105' : 'border-2 border-slate-700'}`}>
-            {pkg.highlight && <span className="bg-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-full absolute -top-3 left-1/2 transform -translate-x-1/2">Most Popular</span>}
+        <div className={`bg-slate-800 rounded-lg p-8 shadow-lg flex flex-col relative max-w-md mx-auto w-full ${pkg.highlight ? 'border-2 border-cyan-500' : 'border-2 border-slate-700'}`}>
+            {pkg.highlight && <span className="bg-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-full absolute -top-3 left-1/2 transform -translate-x-1/2">Best Value</span>}
             <h3 className="text-2xl font-bold text-white mb-2">{pkg.title}</h3>
             <div className="mb-6 flex flex-col">
                 <div className="flex items-baseline gap-2">
@@ -52,18 +52,15 @@ const Pricing: React.FC = () => {
           <div className="inline-block bg-cyan-500/20 border border-cyan-500/50 rounded-full px-4 py-1 mb-4">
             <span className="text-cyan-400 text-sm font-bold tracking-wider uppercase">Back to School Offer</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">50% Off Monthly Plans</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">50% Off Monthly Plan</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
             Secure your spot before <span className="text-white font-bold text-xl block sm:inline">31 January 2026</span> to lock in this exclusive discount. 
             <span className="block mt-2 text-cyan-400 font-bold uppercase tracking-widest text-xs">Classes officially commence Monday, 26 January 2026.</span>
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto items-stretch">
+        <div className="flex justify-center max-w-5xl mx-auto items-stretch">
             {PRICING_PACKAGES.map(pkg => <PricingCard key={pkg.title} pkg={pkg} />)}
         </div>
-        <p className="text-center text-gray-500 mt-12 text-sm italic">
-          * Workshop package requires ability to travel to Johannesburg Rosebank/Sandton area.
-        </p>
       </div>
     </section>
   );

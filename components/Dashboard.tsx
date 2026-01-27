@@ -23,17 +23,14 @@ const Dashboard: React.FC = () => {
     const totalLeads = allLeads.length;
     
     const monthlyRevenue = SAMPLE_STUDENTS.reduce((acc, curr) => {
-        const price = curr.package.includes('Workshop') ? 650 : 500;
-        return acc + price;
+        return acc + 500;
     }, 0);
     
-    const workshopCount = SAMPLE_STUDENTS.filter(s => s.package.includes('Workshop')).length;
-
     const stats = [
         { label: 'Active Students', value: totalStudents, color: 'text-cyan-400', icon: '👨‍🎓' },
         { label: 'Pipeline Leads', value: totalLeads, color: 'text-yellow-400', icon: '⚡' },
         { label: 'Monthly Revenue', value: `R${monthlyRevenue}`, color: 'text-green-400', icon: '💰' },
-        { label: 'Workshop Seats', value: workshopCount, color: 'text-purple-400', icon: '🏢' },
+        { label: 'Platform Status', value: 'Live', color: 'text-purple-400', icon: '🌐' },
     ];
 
     return (
