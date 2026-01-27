@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Features from './components/Features';
@@ -80,6 +81,7 @@ const App: React.FC = () => {
       </main>
       <Footer />
       <WhatsAppFAB />
+      <SpeedInsights />
     </div>
   );
 };
