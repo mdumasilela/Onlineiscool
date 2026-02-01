@@ -30,10 +30,10 @@ export const TUTORS: Tutor[] = [
 export const PRICING_PACKAGES: PricingPackage[] = [
   {
     title: 'Online Classes',
-    price: 500,
+    price: 750,
     features: [
-      'Back to School Offer: 50% OFF (Usually R1000)',
-      'Sign up before 31 Jan 2026 (2026 Intake)',
+      'Back to School Offer: 25% OFF (Usually R1000)',
+      'Sign up before 31 Mar 2026 (2026 Intake)',
       'DBE & IEB Syllabus Coverage',
       '2 x 2-hour lessons per week',
       'Weekly 1-hour Q&A support session',
@@ -103,7 +103,7 @@ export const FAQS: FAQItem[] = [
     },
     {
         question: "What is the Back to School Offer?",
-        answer: "We are offering a massive 50% discount on all our monthly packages if you sign up before 31 January 2026! This is our way of helping students kickstart their 2026 academic year with the best support."
+        answer: "We are offering a massive 25% discount on all our monthly packages if you sign up before 31 March 2026! This is our way of helping students kickstart their 2026 academic year with the best support."
     },
     {
         question: "Why do you only take new learners at the start of the year?",
