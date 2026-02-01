@@ -183,11 +183,11 @@ const Contact: React.FC = () => {
                                 </svg>
                                 {submissionType === 'enrollment' ? 'Enrolling...' : 'Requesting...'}
                             </div>
-                        ) : (submissionType === 'enrollment' ? "Secure My Spot (50% OFF)" : "Schedule My Consultation")}
+                        ) : (submissionType === 'enrollment' ? "Secure My Spot (25% OFF)" : "Schedule My Consultation")}
                     </button>
                     <div className="flex flex-col items-center gap-2 mt-4">
                         <p className="text-gray-500 text-[10px] uppercase tracking-widest font-bold">
-                            {submissionType === 'enrollment' ? 'Offer valid for 2026 intake until 31 January.' : 'Average response time: 2-4 hours.'}
+                            {submissionType === 'enrollment' ? 'Offer valid for 2026 intake until 31 March.' : 'Average response time: 2-4 hours.'}
                         </p>
                         {submissionType === 'enrollment' ? (
                             <button type="button" onClick={() => setSubmissionType('consultation')} className="text-cyan-400 text-[10px] font-bold uppercase hover:underline">
@@ -195,7 +195,7 @@ const Contact: React.FC = () => {
                             </button>
                         ) : (
                             <button type="button" onClick={() => setSubmissionType('enrollment')} className="text-yellow-500 text-[10px] font-bold uppercase hover:underline">
-                                Want to secure the 75% discount now?
+                                Want to secure the 25% discount now?
                             </button>
                         )}
                     </div>
