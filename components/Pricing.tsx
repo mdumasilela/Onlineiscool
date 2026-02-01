@@ -23,8 +23,8 @@ const PricingCard: React.FC<{ pkg: PricingPackage }> = ({ pkg }) => {
                   <span className="text-4xl font-extrabold text-white">R{pkg.price}</span>
                   <span className="text-gray-400">/month</span>
                 </div>
-                <p className="text-cyan-400 text-sm font-bold mt-1">50% OFF Back to School Price</p>
-                <p className="text-gray-500 text-xs line-through">Usually R{pkg.price * 2}</p>
+                <p className="text-cyan-400 text-sm font-bold mt-1">25% OFF Back to School Price</p>
+                <p className="text-gray-500 text-xs line-through">Usually R{pkg.price * 4/3}</p>
             </div>
             <ul className="space-y-4 mb-8 flex-grow">
                 {pkg.features.map((feature, index) => (
@@ -52,9 +52,9 @@ const Pricing: React.FC = () => {
           <div className="inline-block bg-cyan-500/20 border border-cyan-500/50 rounded-full px-4 py-1 mb-4">
             <span className="text-cyan-400 text-sm font-bold tracking-wider uppercase">Back to School Offer</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">50% Off Monthly Plan</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">25% Off Monthly Plan</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Secure your spot before <span className="text-white font-bold text-xl block sm:inline">31 January 2026</span> to lock in this exclusive discount. 
+            Secure your spot before <span className="text-white font-bold text-xl block sm:inline">31 March 2026</span> to lock in this exclusive discount. 
             <span className="block mt-2 text-cyan-400 font-bold uppercase tracking-widest text-xs">Classes officially commence Monday, 26 January 2026.</span>
           </p>
         </div>
