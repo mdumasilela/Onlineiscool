@@ -6,7 +6,7 @@ const Contact: React.FC = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const [selectedPackage, setSelectedPackage] = useState('Online Classes - R500/month');
+    const [selectedPackage, setSelectedPackage] = useState('Online Classes - R750/month');
     const [submissionType, setSubmissionType] = useState<'enrollment' | 'consultation'>('enrollment');
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -57,11 +57,11 @@ const Contact: React.FC = () => {
             {submissionType === 'enrollment' ? 'Back to School Special' : 'Expert Guidance'}
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-white">
-            {submissionType === 'enrollment' ? 'Secure Your 50% Discount' : 'Book a Free Consultation'}
+            {submissionType === 'enrollment' ? 'Secure Your 25% Discount' : 'Book a Free Consultation'}
           </h2>
           <p className="text-gray-400 mt-2">
             {submissionType === 'enrollment' 
-                ? 'Fill out the form to lock in your special rate before 31 January 2026.' 
+                ? 'Fill out the form to lock in your special rate before 31 March 2026.' 
                 : 'Not sure if we are the right fit? Chat with our experts to find the perfect path for your child.'}
           </p>
         </div>
@@ -159,7 +159,7 @@ const Contact: React.FC = () => {
                                 onChange={(e) => setSelectedPackage(e.target.value)}
                                 className="w-full bg-slate-700/50 border border-slate-600 text-white rounded-lg p-3 focus:ring-2 focus:ring-cyan-500 outline-none transition"
                             >
-                                <option>Online Classes - R500/month</option>
+                                <option>Online Classes - R750/month</option>
                             </select>
                         ) : (
                             <div className="w-full bg-slate-700/50 border border-slate-600 text-cyan-400 font-bold rounded-lg p-3 flex items-center">
@@ -195,7 +195,7 @@ const Contact: React.FC = () => {
                             </button>
                         ) : (
                             <button type="button" onClick={() => setSubmissionType('enrollment')} className="text-yellow-500 text-[10px] font-bold uppercase hover:underline">
-                                Want to secure the 50% discount now?
+                                Want to secure the 75% discount now?
                             </button>
                         )}
                     </div>
