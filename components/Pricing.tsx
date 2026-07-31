@@ -54,8 +54,8 @@ const Pricing: React.FC = () => {
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">25% Off Monthly Plan</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Secure your spot before <span className="text-white font-bold text-xl block sm:inline">31 March 2026</span> to lock in this exclusive discount. 
-            <span className="block mt-2 text-cyan-400 font-bold uppercase tracking-widest text-xs">Classes officially commence Monday, 26 January 2026.</span>
+            Secure your spot before <span className="text-white font-bold text-xl block sm:inline">31 August 2026</span> to lock in this exclusive discount. 
+            <span className="block mt-2 text-cyan-400 font-bold uppercase tracking-widest text-xs">Classes ongoing.</span>
           </p>
         </div>
         <div className="flex justify-center max-w-5xl mx-auto items-stretch">
