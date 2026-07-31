@@ -32,7 +32,7 @@ export const PRICING_PACKAGES: PricingPackage[] = [
     price: 750,
     features: [
       'Back to School Offer: 25% OFF (Usually R1000)',
-      'Sign up before 31 Mar 2026 (2026 Intake)',
+      'Sign up before 31 August 2026 (2026 Intake)',
       'DBE & IEB Syllabus Coverage',
       '2 x 2-hour lessons per week',
       'Weekly 1-hour Q&A support session',
@@ -102,7 +102,7 @@ export const FAQS: FAQItem[] = [
     },
     {
         question: "What is the 1-hour weekly Q&A session?",
-        answer: "This is a dedicated time every week for students to bring any mathematical questions they have or specific challenges they've faced in their school lessons recently. It ensures th[...]
+        answer: "This is a dedicated time every week for students to bring any mathematical questions they have or specific challenges they've faced in their school lessons recently. It ensures t[...]
     },
     {
         question: "What grades and subjects do you currently offer?",
@@ -114,7 +114,7 @@ export const FAQS: FAQItem[] = [
     },
     {
         question: "What is the Back to School Offer?",
-        answer: "We are offering a massive 25% discount on all our monthly packages if you sign up before 31 March 2026! This is our way of helping students kickstart their 2026 academic year wit[...]
+        answer: "We are offering a massive 25% discount on all our monthly packages if you sign up before 31 August 2026! This is our way of helping students kickstart their 2026 academic year wit[...]
     },
     {
         question: "Why do you only take new learners at the start of the year?",
@@ -203,9 +203,9 @@ export const SAMPLE_LEADS: Lead[] = [
     email: 'lerato@example.com',
     phone: '082 111 2222',
     grade: 'Grade 11',
-    package: 'Online Classes',
+    package: 'One-on-One Tutoring',
     status: 'New',
-    dateJoined: '2025-05-10T10:30:00Z'
+    dateJoined: '2026-07-31T10:30:00Z'
   },
   {
     id: '2',
@@ -216,7 +216,7 @@ export const SAMPLE_LEADS: Lead[] = [
     grade: 'Grade 12',
     package: 'Online Classes',
     status: 'Info Requested',
-    dateJoined: '2025-05-09T14:15:00Z'
+    dateJoined: '2026-07-30T14:15:00Z'
   }
 ];
 
