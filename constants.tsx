@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Tutor, PricingPackage, FeatureInfo, Testimonial, FAQItem, DiagnosticQuestion, Lead, Student, ClassSession } from './types';
 
@@ -40,27 +39,39 @@ export const PRICING_PACKAGES: PricingPackage[] = [
       'Access to recorded lessons'
     ],
     highlight: true 
+  },
+  {
+    title: 'One-on-One Tutoring',
+    price: 2500,
+    features: [
+      'Personalised 1:1 online sessions',
+      'Flexible scheduling to suit the student',
+      'Tailored curriculum focusing on weak topics',
+      'Weekly personalised progress report',
+      'Direct access to your tutor for quick questions'
+    ],
+    highlight: false
   }
 ];
 
 export const FEATURES: FeatureInfo[] = [
   {
-    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 10v-1m0 0c-1.657 0-3-.895-3-2s1.343-2 3-2 3-.895 3-2-1.343-2-3-2m0 8c-1.11 0-2.08-.402-2.599-1M12 16v1" /></svg>,
+    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strok[...]
     title: 'Affordable Pricing',
     description: 'At just R62.50 per hour, our highly competitive rates make top-tier tutoring accessible to a wider audience.'
   },
   {
-    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-5.998 12.078 12.078 0 01.665-6.479L12 14z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-5.998 12.078 12.078 0 01.665-6.479L12 14z" /></svg>,
+    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16[...]
     title: 'Expert & Qualified Tutors',
     description: 'Our team consists of top mathematics achievers and graduates from the University of Cape Town, ensuring high-quality teaching.'
   },
   {
-    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>,
+    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strok[...]
     title: 'DBE & IEB Focused',
     description: 'Comprehensive coverage of both the Department of Basic Education (DBE) and Independent Examinations Board (IEB) curricula.'
   },
    {
-    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>,
+    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strok[...]
     title: 'Personalised Q&A Sessions',
     description: 'Weekly sessions where students can bring specific challenges from their own schools for expert guidance.'
   }
@@ -68,7 +79,7 @@ export const FEATURES: FeatureInfo[] = [
 
 export const TESTIMONIALS: Testimonial[] = [
     {
-        quote: "The progress my son has made since joining ONLINE S'COOL is remarkable. The tutors are knowledgeable and incredibly patient. His confidence in math has soared, and his grades reflect it. Highly recommended!",
+        quote: "The progress my son has made since joining ONLINE S'COOL is remarkable. The tutors are knowledgeable and incredibly patient. His confidence in math has soared, and his grades refle[...]
         name: 'Thabo M.',
         relation: 'Parent of a Grade 12 Student'
     },
@@ -78,7 +89,7 @@ export const TESTIMONIALS: Testimonial[] = [
         relation: 'Grade 12 Student'
     },
     {
-        quote: "A fantastic and affordable service. The school-like structure provides consistency that you don't get from other platforms. The team is professional and truly cares about the students' success.",
+        quote: "A fantastic and affordable service. The school-like structure provides consistency that you don't get from other platforms. The team is professional and truly cares about the stude[...]
         name: 'Sarah J.',
         relation: 'Parent of a Grade 11 Student'
     }
@@ -91,7 +102,7 @@ export const FAQS: FAQItem[] = [
     },
     {
         question: "What is the 1-hour weekly Q&A session?",
-        answer: "This is a dedicated time every week for students to bring any mathematical questions they have or specific challenges they've faced in their school lessons recently. It ensures that our support extends beyond our curriculum to help them excel in their daily schoolwork."
+        answer: "This is a dedicated time every week for students to bring any mathematical questions they have or specific challenges they've faced in their school lessons recently. It ensures th[...]
     },
     {
         question: "What grades and subjects do you currently offer?",
@@ -103,11 +114,11 @@ export const FAQS: FAQItem[] = [
     },
     {
         question: "What is the Back to School Offer?",
-        answer: "We are offering a massive 25% discount on all our monthly packages if you sign up before 31 March 2026! This is our way of helping students kickstart their 2026 academic year with the best support."
+        answer: "We are offering a massive 25% discount on all our monthly packages if you sign up before 31 March 2026! This is our way of helping students kickstart their 2026 academic year wit[...]
     },
     {
         question: "Why do you only take new learners at the start of the year?",
-        answer: "At ONLINE S'COOL, we believe mathematics is a language of logic that requires time to master. By starting at the beginning of the academic year, we have the necessary 'runway' to build deep, unshakable conceptual foundations rather than just memorising steps. We are advocates for lifelong learning; true success comes from consistent growth and understanding, not last-minute cramming. Starting early ensures that by exam season, our students aren't just surviving—they are thriving."
+        answer: "At ONLINE S'COOL, we believe mathematics is a language of logic that requires time to master. By starting at the beginning of the academic year, we have the necessary 'runway' to[...]
     }
 ];
 
